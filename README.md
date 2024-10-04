@@ -5,6 +5,11 @@
 ![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Ffiji)
 ![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Ffiji)
 
+[![CodeQL](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability)](https://codeclimate.com/github/AndreyMork/fiji/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage)](https://codeclimate.com/github/AndreyMork/fiji/test_coverage)
+
 <!-- ![npms.io](https://img.shields.io/npms-io/final-score/%40ayka%2Ffiji) -->
 
 ## Overview

@@ -15,6 +15,10 @@
 		"settings",
 		"type-safe"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AndreyMork/fiji.git"
+	},
 	"files": [
 		"dist/"
 	],
