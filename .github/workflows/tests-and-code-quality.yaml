@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-node@v4
-      - run: npm install
+      - uses: ./.github/actions/setup
       - name: Format
         run: just format-check
 
@@ -24,9 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-node@v4
-      - run: npm install
+      - uses: ./.github/actions/setup
       - name: Lint
         run: just lint
 
@@ -35,9 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-node@v4
-      - run: npm install
+      - uses: ./.github/actions/setup
       - name: Type Check
         run: just typecheck
 
@@ -46,9 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-node@v4
-      - run: npm install
+      - uses: ./.github/actions/setup
       - name: Test
         run: just test
       - uses: paambaati/codeclimate-action@v9
@@ -57,3 +49,22 @@ jobs:
         with:
           coverageCommand: just coverage -r lcov
           coverageLocations: coverage/lcov.info:lcov
+
+  trivy:
+    name: Trivy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
