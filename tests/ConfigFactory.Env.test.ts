@@ -6,7 +6,16 @@ import * as Fiji from '#Src/Main.ts';
 
 const test = Japa.test;
 
-test.group('ConfigFactory - env handling', () => {
+test.group('ConfigFactory - env handling', (group) => {
+	const originalEnv = process.env;
+	group.setup(() => {
+		process.env = {};
+	});
+
+	group.teardown(() => {
+		process.env = originalEnv;
+	});
+
 	test('`process.env` is used as a default environment source', ({
 		expect,
 	}) => {
@@ -141,6 +150,7 @@ test.group('ConfigFactory - env handling', () => {
 			dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 			apiKey: ctx.env('API_KEY', ctx.z.string()),
 			port: ctx.env('PORT', ctx.z.port().default(3000)),
+			logLevel: ctx.env('LOG_LEVEL', ctx.z.string().default('info')),
 			optional: ctx.env('OPTIONAL', ctx.z.string().optional()),
 			envTest: ctx.env('ENV_TEST', ctx.z.string()),
 		}));
@@ -155,10 +165,10 @@ test.group('ConfigFactory - env handling', () => {
 		const envInfo = factory.envInfo();
 
 		expect(envInfo).toEqual({
-			loaded: ['API_KEY', 'DATABASE_URL', 'ENV_TEST'],
-			missing: ['OPTIONAL', 'PORT'],
-			defaulted: ['PORT'],
-			sourced: ['API_KEY', 'DATABASE_URL'],
+			loaded: ['API_KEY', 'DATABASE_URL', 'ENV_TEST'].sort(),
+			missing: ['OPTIONAL', 'PORT', 'LOG_LEVEL'].sort(),
+			defaulted: ['LOG_LEVEL', 'PORT'].sort(),
+			sourced: ['API_KEY', 'DATABASE_URL'].sort(),
 		});
 
 		process.env = originalEnv;

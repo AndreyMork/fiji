@@ -1,0 +1,22 @@
+name: Tests and Code Quality
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 8 * * WED'
+  push:
+    branches: [main]
+
+jobs:
+  stryker:
+    name: Stryker mutation testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Stryker
+        run: just stryker --force --reporters=clear-text,progress-append-only,dashboard
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+          STRYKER_DASHBOARD_PROJECT: ${{ github.repository }}
+          STRYKER_DASHBOARD_VERSION: ${{ github.ref_name }}

@@ -6,7 +6,12 @@ export type properties<t> = Im.List<Property<t>>;
 
 export const init = <t>(obj?: Record<string, any>): FlatObject<t> => {
 	let index: index<t> = Im.Map();
-	let objectKeys = Im.Stack(Object.keys(obj ?? {}).map((key) => keys([key])));
+	let objectKeys = Im.Stack(
+		Object.keys(obj ?? {}).map((key) =>
+			// Stryker disable next-line ArrayDeclaration
+			keys([key]),
+		),
+	);
 
 	while (!objectKeys.isEmpty()) {
 		const keys = objectKeys.peek()!;
@@ -32,8 +37,8 @@ export const init = <t>(obj?: Record<string, any>): FlatObject<t> => {
 	return flatObject(index);
 };
 
-export const copy = <t extends Record<string, any>>(obj: t): t =>
-	init(obj).toJS<t>();
+// export const copy = <t extends Record<string, any>>(obj: t): t =>
+// init(obj).toJS<t>();
 export const prop = <t>(keys: keys, value: t): Property<t> =>
 	new Property(keys, value);
 export const flatObject = <t>(index?: index<t>): FlatObject<t> =>
@@ -57,14 +62,14 @@ export class FlatObject<t> {
 			.toList();
 	}
 
-	get<k>(keys: keys): k {
-		return this.index.get(keys) as k;
-	}
+	// get<k>(keys: keys): k {
+	// 	return this.index.get(keys) as k;
+	// }
 
-	set(keys: keys, value: t) {
-		this.index = this.index.set(keys, value);
-		return this;
-	}
+	// 	set(keys: keys, value: t) {
+	// 		this.index = this.index.set(keys, value);
+	// 		return this;
+	// 	}
 
 	has(keys: keys): boolean {
 		return this.index.has(keys);

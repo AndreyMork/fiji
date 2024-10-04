@@ -5,7 +5,16 @@ import * as Fiji from '#Src/Main.ts';
 
 const test = Japa.test;
 
-test.group('ConfigFactory - `init`', () => {
+test.group('ConfigFactory - `init`', (group) => {
+	const originalEnv = process.env;
+	group.setup(() => {
+		process.env = {};
+	});
+
+	group.teardown(() => {
+		process.env = originalEnv;
+	});
+
 	test('`init` with config object', ({ expect }) => {
 		const factory = Fiji.init({
 			appName: 'TestApp',
@@ -116,9 +125,19 @@ test.group('ConfigFactory - `toJS`', () => {
 
 		expect(result).toEqual({
 			name: 'Test',
-			password: Fiji.ConfigFactory.Constants.secretMarker,
+			password: factory.secretMarker,
 			nested: {
-				apiKey: Fiji.ConfigFactory.Constants.secretMarker,
+				apiKey: factory.secretMarker,
+			},
+		});
+
+		const result2 = factory.toJS();
+
+		expect(result2).toEqual({
+			name: 'Test',
+			password: 'secret',
+			nested: {
+				apiKey: '12345',
 			},
 		});
 	});

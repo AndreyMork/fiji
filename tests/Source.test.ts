@@ -4,7 +4,16 @@ import * as Fiji from '#Src/Main.ts';
 
 const test = Japa.test;
 
-test.group('Source - ValueSource', () => {
+test.group('Source - ValueSource', (group) => {
+	const originalEnv = process.env;
+	group.setup(() => {
+		process.env = {};
+	});
+
+	group.teardown(() => {
+		process.env = originalEnv;
+	});
+
 	test('`ValueSource` works', ({ expect }) => {
 		const factory = Fiji.init((ctx) => ({
 			// Primitive values
@@ -208,7 +217,7 @@ test.group('Source - EnvSource', () => {
 		const resultHiddenSecrets = factory.toJS({ hideSecrets: true });
 		expect(resultHiddenSecrets).toEqual({
 			normalEnv: 'visible',
-			secretEnv: Fiji.ConfigFactory.Constants.secretMarker,
+			secretEnv: factory.secretMarker,
 		});
 	});
 	test('`toJS` throws error for missing env variables', ({ expect }) => {

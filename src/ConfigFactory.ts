@@ -47,14 +47,15 @@ export const init = <t extends T.rawConfig>(
 	return new ConfigFactory(flatConfig);
 };
 
-export namespace Constants {
-	export const secretMarker = '<secret>';
-}
-
 export { ConfigFactory as t };
 export class ConfigFactory<t extends T.rawConfig> {
 	readonly #flatConfig: flatConfig;
 	readonly #secrets: Im.Set<FlatObject.keys>;
+
+	static defaults = {
+		secretMarker: '<secret>',
+		hideSecrets: false,
+	};
 
 	constructor(flatConfig: flatConfig) {
 		this.#flatConfig = flatConfig;
@@ -71,11 +72,16 @@ export class ConfigFactory<t extends T.rawConfig> {
 		throw new TypePropertyError('$$patch');
 	}
 
+	get secretMarker() {
+		return ConfigFactory.defaults.secretMarker;
+	}
+
 	toJS(opts?: toJSOpts): T.config<t> {
-		const hideSecrets = opts?.hideSecrets ?? false;
+		const { hideSecrets = ConfigFactory.defaults.hideSecrets } = opts ?? {};
+
 		const flatObject = this.#flatConfig.map((item, keys) => {
 			if (hideSecrets && this.#secrets.has(keys)) {
-				return Constants.secretMarker;
+				return ConfigFactory.defaults.secretMarker;
 			}
 
 			if (item instanceof Source.Value) {

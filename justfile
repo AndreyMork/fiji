@@ -28,6 +28,7 @@ clean:
     rm -rf ./*.tsbuildinfo
     rm -rf ./dist
     rm -rf ./coverage
+    rm -rf ./reports
 
 [group('Setup')]
 build *args:
@@ -56,6 +57,7 @@ full-check:
     -@just lint
     -@just typecheck
     -@just test
+    -@just stryker
 
 [group('Maintenance')]
 test *args:
@@ -72,6 +74,10 @@ typecheck:
 [group('Maintenance')]
 lint *args:
     npx biome lint . {{ args }}
+
+[group('Maintenance')]
+stryker *args:
+    npx stryker run {{ args }}
 
 [group('Maintenance')]
 format-check:
