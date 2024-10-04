@@ -60,6 +60,14 @@ full-check:
     -@just stryker
 
 [group('Maintenance')]
+full-check-strict:
+    @just format-check
+    @just lint
+    @just typecheck
+    @just test
+    @just stryker
+
+[group('Maintenance')]
 test *args:
     npx c8 tsx tests/japa.ts {{ args }}
 
