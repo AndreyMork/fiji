@@ -10,7 +10,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability)](https://codeclimate.com/github/AndreyMork/fiji/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage)](https://codeclimate.com/github/AndreyMork/fiji/test_coverage)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Ffiji)](https://dashboard.stryker-mutator.io/reports/fiji)
+[![Mutation testing badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Ffiji%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/fiji/main)
 
 <!-- ![npms.io](https://img.shields.io/npms-io/final-score/%40ayka%2Ffiji) -->
 
