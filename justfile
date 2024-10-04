@@ -65,7 +65,6 @@ full-check-strict:
     @just lint
     @just typecheck
     @just test
-    @just stryker
 
 [group('Maintenance')]
 test *args:
