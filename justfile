@@ -59,7 +59,11 @@ full-check:
 
 [group('Maintenance')]
 test *args:
-    c8 tsx tests/japa.ts {{ args }}
+    npx c8 tsx tests/japa.ts {{ args }}
+
+[group('Maintenance')]
+coverage *args:
+    npx c8 report {{ args }}
 
 [group('Maintenance')]
 typecheck:
