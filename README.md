@@ -82,9 +82,9 @@ import * as Fiji from '@ayka/fiji';
 
 // Initialize with a plain object
 const factory = Fiji.init({
-	appName: 'MyApp',
-	port: ctx.z.port().default(3000), // Updated to use ctx.z.port
-	debug: true,
+  appName: 'MyApp',
+  port: ctx.z.port().default(3000), // Updated to use ctx.z.port
+  debug: true,
 });
 
 // Convert the configuration to a JavaScript object
@@ -99,9 +99,9 @@ import * as Fiji from '@ayka/fiji';
 
 // Initialize with a function
 const factory = Fiji.init((ctx) => ({
-	appName: 'MyApp',
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
-	debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
+  appName: 'MyApp',
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
 }));
 
 // Load environment variables and convert to JavaScript object
@@ -118,8 +118,8 @@ You can mark certain configuration values as secrets, which will be hidden when 
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-	apiKey: ctx.value('my-secret-key').secret(),
-	dbPassword: ctx.env('DB_PASSWORD').secret(),
+  apiKey: ctx.value('my-secret-key').secret(),
+  dbPassword: ctx.env('DB_PASSWORD').secret(),
 }));
 
 const config = factory.toJS({ hideSecrets: true });
@@ -138,8 +138,8 @@ You can define environment variables using the `ctx.env` method. This method all
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
-	dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
 factory.load();
@@ -155,8 +155,8 @@ The `ctx.env` method supports validation and default values. You can use `ctx.z`
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
-	dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url().nonempty()),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url().nonempty()),
 }));
 
 factory.load();
@@ -180,7 +180,7 @@ Environment variables can also be marked as secrets, ensuring they are not expos
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-	apiKey: ctx.env('API_KEY').secret(),
+  apiKey: ctx.env('API_KEY').secret(),
 }));
 
 const config = factory.toJS({ hideSecrets: true });
@@ -199,13 +199,13 @@ You can add an environment source from a plain object. This is useful for testin
 import * as Fiji from '@ayka/fiji';
 
 const envSource = {
-	PORT: '4000',
-	DATABASE_URL: 'postgres://user:password@localhost:5432/mydb',
+  PORT: '4000',
+  DATABASE_URL: 'postgres://user:password@localhost:5432/mydb',
 };
 
 const factory = Fiji.init((ctx) => ({
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
-	dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
 // Add the environment source from the object
@@ -226,8 +226,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const factory = Fiji.init((ctx) => ({
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
-	dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
 // Add the environment source from a file. Defaults to '.env' if path is not specified.
@@ -248,12 +248,12 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const envSourceObject = {
-	PORT: '4000',
+  PORT: '4000',
 };
 
 const factory = Fiji.init((ctx) => ({
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
-	dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
 // Combine multiple sources by chaining methods
@@ -275,12 +275,12 @@ You can extend an existing configuration factory with additional properties. Thi
 import * as Fiji from '@ayka/fiji';
 
 const baseFactory = Fiji.init((ctx) => ({
-	appName: 'BaseApp',
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  appName: 'BaseApp',
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
 }));
 
 const extendedFactory = baseFactory.extend((ctx) => ({
-	debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
+  debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
 }));
 
 extendedFactory.load();
@@ -296,12 +296,12 @@ The `patch` method allows you to modify an existing configuration factory by app
 import * as Fiji from '@ayka/fiji';
 
 const baseFactory = Fiji.init((ctx) => ({
-	appName: 'BaseApp',
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  appName: 'BaseApp',
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
 }));
 
 const patchedFactory = baseFactory.patch((ctx) => ({
-	appName: 'PatchedApp',
+  appName: 'PatchedApp',
 }));
 
 patchedFactory.load();
@@ -319,9 +319,9 @@ import * as Fiji from '@ayka/fiji';
 
 // Initialize the configuration factory
 const factory = Fiji.init((ctx) => ({
-	appName: ctx.value('MyApp'),
-	port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
-	debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
+  appName: ctx.value('MyApp'),
+  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
 }));
 
 // Load the configuration
@@ -333,8 +333,8 @@ class Config extends factory.asClass() {}
 // Use the class in a NestJS service
 @Injectable()
 export class AppService {
-	// Do not forget to add `Config` to module providers
-	constructor(private readonly config: Config) {}
+  // Do not forget to add `Config` to module providers
+  constructor(private readonly config: Config) {}
 }
 ```
 
