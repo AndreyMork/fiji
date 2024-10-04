@@ -6,7 +6,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"#PackageJSON": ["./package.json"],
-			"#Repo": ["./src/Repo.ts"],
+			"#Main": ["./src/Main.ts"],
 			"#Src/*": ["./src/*"]
 		}
 	}
