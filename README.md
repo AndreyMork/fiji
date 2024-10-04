@@ -83,7 +83,7 @@ import * as Fiji from '@ayka/fiji';
 // Initialize with a plain object
 const factory = Fiji.init({
   appName: 'MyApp',
-  port: ctx.z.port().default(3000), // Updated to use ctx.z.port
+  port: ctx.z.port().default(3000),
   debug: true,
 });
 
@@ -100,7 +100,7 @@ import * as Fiji from '@ayka/fiji';
 // Initialize with a function
 const factory = Fiji.init((ctx) => ({
   appName: 'MyApp',
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
 }));
 
@@ -138,7 +138,7 @@ You can define environment variables using the `ctx.env` method. This method all
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
@@ -155,7 +155,7 @@ The `ctx.env` method supports validation and default values. You can use `ctx.z`
 import * as Fiji from '@ayka/fiji';
 
 const factory = Fiji.init((ctx) => ({
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url().nonempty()),
 }));
 
@@ -204,7 +204,7 @@ const envSource = {
 };
 
 const factory = Fiji.init((ctx) => ({
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Already correct
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
@@ -226,7 +226,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const factory = Fiji.init((ctx) => ({
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
@@ -252,7 +252,7 @@ const envSourceObject = {
 };
 
 const factory = Fiji.init((ctx) => ({
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
 }));
 
@@ -276,7 +276,7 @@ import * as Fiji from '@ayka/fiji';
 
 const baseFactory = Fiji.init((ctx) => ({
   appName: 'BaseApp',
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
 }));
 
 const extendedFactory = baseFactory.extend((ctx) => ({
@@ -297,7 +297,7 @@ import * as Fiji from '@ayka/fiji';
 
 const baseFactory = Fiji.init((ctx) => ({
   appName: 'BaseApp',
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
 }));
 
 const patchedFactory = baseFactory.patch((ctx) => ({
@@ -320,7 +320,7 @@ import * as Fiji from '@ayka/fiji';
 // Initialize the configuration factory
 const factory = Fiji.init((ctx) => ({
   appName: ctx.value('MyApp'),
-  port: ctx.env('PORT', ctx.z.port().default(3000)), // Updated to use ctx.z.port
+  port: ctx.env('PORT', ctx.z.port().default(3000)),
   debug: ctx.env('DEBUG', ctx.z.boolean().default(false)),
 }));
 
