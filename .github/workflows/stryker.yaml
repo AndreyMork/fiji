@@ -1,4 +1,4 @@
-name: Tests and Code Quality
+name: Stryker Mutator Tests
 
 on:
   workflow_dispatch: {}
@@ -9,7 +9,7 @@ on:
 
 jobs:
   stryker:
-    name: Stryker mutation testing
+    name: Stryker mutator tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
