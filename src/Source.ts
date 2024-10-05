@@ -11,7 +11,7 @@ export const env = <t extends Zod.ZodType>(
 export { Source as t };
 export abstract class Source<t> {
 	get $$t(): t {
-		throw new Error('Type property is not accessible');
+		return undefined as any;
 	}
 
 	isSecret = false;

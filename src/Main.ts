@@ -7,6 +7,8 @@ export { init } from './ConfigFactory.ts';
 export type { ctx, initFn } from './ConfigFactory.ts';
 export * as ConfigFactory from './ConfigFactory.ts';
 export * as Source from './Source.ts';
+export * as Errors from './Errors.ts';
+
 // export * as FlatObject from './FlatObject.ts';
 
 export * as Zod from 'zod';

@@ -4,6 +4,7 @@ import * as Im from 'immutable';
 import * as Znv from 'znv';
 import * as Zod from 'zod';
 
+import * as Errors from './Errors.ts';
 import * as FlatObject from './FlatObject.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
@@ -178,14 +179,14 @@ export class ConfigFactory<t extends T.rawConfig> {
 
 			if (item instanceof Source.Env) {
 				if (!this.#env.has(item.name)) {
-					throw new Error(`ENV not loaded: ${item.name}`);
+					throw new Errors.EnvNotLoadedError(item.name);
 				}
 
 				const value = this.#env.get(item.name);
 				return value;
 			}
 
-			throw new Error(`Unknown source type: ${item}`);
+			throw new Errors.InternalFijiError(`Unknown source type: ${item}`);
 		});
 
 		return flatObject.toJS();
