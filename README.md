@@ -31,6 +31,7 @@
   - [Defining Environment Variables](#defining-environment-variables)
   - [Validation and Default Values](#validation-and-default-values)
   - [Loading Environment Variables](#loading-environment-variables)
+    - [Options for `load` Method](#options-for-load-method)
   - [Secret Management](#secret-management)
   - [Adding Environment Sources](#adding-environment-sources)
     - [Adding Environment Source from Object](#adding-environment-source-from-object)
@@ -42,6 +43,15 @@
 - [API Reference](#api-reference)
   - [ConfigFactory](#configfactory)
     - [Methods](#methods)
+      - [toJS](#tojsopts-tojst-configt)
+      - [load](#loadopts-loadopts-configfactoryt)
+      - [patch](#patchpatch-initparamstpatcht-configfactoryt)
+      - [extend](#extendr-extends-trawconfigextension-initparamsr-configfactorytextensiont-r)
+      - [asClass](#asclass-configclassconstructort)
+      - [addEnvSource](#addenvsourceenvsource-nodejsprocessenv-configfactoryt)
+      - [addEnvFile](#addenvfilepath-env-configfactoryt)
+      - [parseEnv](#parseenvenvsource-nodejsprocessenv-processenv-configfactoryt)
+      - [envInfo](#envinfo-recordstring-any)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
@@ -166,10 +176,37 @@ console.log(config);
 
 ### Loading Environment Variables
 
-To load environment variables, call the `load` method on your configuration factory. This will read the variables from the environment and apply any defined schemas and defaults.
+To load environment variables, use the `load` method on your configuration factory. This method reads the variables from the environment and applies any defined schemas and defaults. It also allows you to specify additional options for loading environment variables from files or other sources.
 
 ```typescript
-factory.load();
+factory.load({
+  processEnv: process.env, // Optional: Specify a custom environment source
+  envFiles: ['.env', 'config.env'], // Optional: Load variables from specified files
+  envSources: [customEnvSource], // Optional: Load variables from additional sources
+});
+```
+
+#### Options for `load` Method
+
+- **processEnv**: A custom environment source to use instead of the default `process.env`.
+- **envFiles**: An array of file paths to load environment variables from. The files are processed in the order they are specified.
+- **envSources**: An array of additional environment sources to load variables from. These sources can override values from earlier sources.
+
+The `load` method processes the sources in the following order:
+
+1. Environment files specified in `envFiles`.
+2. Additional environment sources specified in `envSources`.
+3. The `processEnv` source, which defaults to `process.env` if not specified.
+
+This order allows later sources to override values from earlier ones, providing flexibility in managing your configuration.
+
+```typescript
+factory.load({
+  envFiles: ['.env', 'config.env'],
+  envSources: [{ PORT: '8080' }],
+});
+const config = factory.toJS();
+console.log(config); // Configuration with values from specified sources
 ```
 
 ### Secret Management
@@ -346,47 +383,137 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
 
 - **init(configSource: initParams<t>): ConfigFactory<t>**
 
-  - Constructor function that creates a new configuration factory with the given source.
+  - Initializes a new configuration factory with the provided configuration source. The configuration source can be a plain object or a function that receives a context for dynamic configurations.
 
 #### Methods
 
 - **toJS(opts?: toJSOpts): T.config<t>**
 
-  - Converts the configuration to a JavaScript object. Optionally hides secrets.
+  - Converts the configuration to a JavaScript object. Optionally hides secrets if the `hideSecrets` option is set to `true`.
+
+  - **Example:**
+
+    ```typescript
+    const factory = Fiji.init((ctx) => ({
+      apiKey: ctx.value('my-secret-key').secret(),
+      dbPassword: ctx.env('DB_PASSWORD').secret(),
+    }));
+
+    factory.load();
+    const config = factory.toJS({ hideSecrets: true });
+    console.log(config); // { apiKey: '<secret>', dbPassword: '<secret>' }
+    ```
 
 - **load(opts?: loadOpts): ConfigFactory<t>**
 
-  - Loads environment variables and applies schemas and defaults.
+  - Loads environment variables and applies schemas and defaults. You can specify custom environment sources, files, and additional sources.
+
+  - **Example:**
+
+    ```typescript
+    const factory = Fiji.init((ctx) => ({
+      port: ctx.env('PORT', ctx.z.port().default(3000)),
+      dbUrl: ctx.env('DATABASE_URL', ctx.z.string().url()),
+    }));
+
+    factory.load({
+      processEnv: { PORT: '8080' },
+      envFiles: ['.env', 'config.env'],
+      envSources: [{ DATABASE_URL: 'postgres://user:pass@localhost:5432/db' }],
+    });
+
+    const config = factory.toJS();
+    console.log(config); // { port: 8080, dbUrl: 'postgres://user:pass@localhost:5432/db' }
+    ```
 
 - **patch(patch: initParams<T.patch<t>>): ConfigFactory<t>**
 
-  - Applies a patch to the existing configuration.
+  - Applies a patch to the existing configuration and returns a new factory instance. This allows you to modify specific properties without recreating the entire configuration.
+
+  - **Example:**
+
+    ```typescript
+    const factory = Fiji.init((ctx) => ({
+      apiKey: ctx.value('my-secret-key').secret(),
+      dbPassword: ctx.env('DB_PASSWORD').secret(),
+    }));
+
+    factory.load();
+
+    const newFactory = factory.patch({
+      apiKey: 'new-secret-key',
+    });
+
+    const config = newFactory.toJS();
+    console.log(config); // { apiKey: 'new-secret-key', dbPassword: '<secret>' }
+    ```
 
 - **extend<r extends T.rawConfig>(extension: initParams<r>): ConfigFactory<T.extension<t, r>>**
 
-  - Extends the existing configuration with additional properties.
+  - Extends the existing configuration with additional properties and returns a new factory instance. This is useful for adding new configuration options without modifying the original factory.
 
-- **clone(): ConfigFactory<t>**
+  - **Example:**
 
-  - Creates a clone of the current configuration factory.
+    ```typescript
+    const factory = Fiji.init((ctx) => ({
+      apiKey: ctx.value('my-secret-key').secret(),
+      dbPassword: ctx.env('DB_PASSWORD').secret(),
+    }));
+
+    const extendedFactory = factory.extend({
+      newProperty: 'new-value',
+    });
+    extendedFactory.load();
+
+    const config = extendedFactory.toJS();
+    console.log(config); // { apiKey: '<secret>', dbPassword: '<secret>', newProperty: 'new-value' }
+    ```
 
 - **asClass(): configClassConstructor<t>**
 
-  - Converts the configuration factory to a class constructor. This is particularly useful for integrating with NestJS, a popular Node.js framework. The resulting class can be used as a provider in NestJS modules, allowing for typed configuration injection throughout your application. For example:
+  - Converts the configuration factory to a class constructor. This is particularly useful for integrating with the NestJS framework. The resulting class can be used as a provider in NestJS modules, allowing for typed configuration injection throughout your application.
+
+  - **Example:**
+
+    ```typescript
+    import * as Fiji from '@ayka/fiji';
+
+    const factory = Fiji.init((ctx) => ({
+      apiKey: ctx.env('API_KEY').secret(),
+      dbPassword: ctx.env('DB_PASSWORD').secret(),
+    }));
+
+    factory.load();
+    class Config extends factory.asClass() {}
+    const config = new Config();
+    console.log(config.apiKey);
+    console.log(config.dbPassword);
+    ```
+
+    ```typescript
+    import { Module } from '@nestjs/common';
+    import { Config } from './config';
+
+    @Module({
+      providers: [Config],
+    })
+    export class AppModule {}
+    ```
 
 - **addEnvSource(envSource: NodeJS.ProcessEnv): ConfigFactory<t>**
 
-  - Adds an environment source from a plain object.
+  - Adds an environment source to the configuration factory. This allows you to programmatically override environment variables.
 
 - **addEnvFile(path = '.env'): ConfigFactory<t>**
 
-  - Adds an environment source from a file.
+  - Adds an environment source from a file. This is useful for loading environment variables from `.env` files or other configuration files.
 
 - **parseEnv(envSource: NodeJS.ProcessEnv = process.env): ConfigFactory<t>**
 
-  - Parses environment variables from the given source.
+  - Parses the environment variables and updates the internal environment map. This method ensures that all environment variables are validated and applied according to the defined schemas.
 
 - **envInfo(): { missing: string[], loaded: string[], defaulted: string[], sourced: string[] }**
+
   - Provides information about the environment variables, including which are missing, loaded, defaulted, and sourced.
 
 For more detailed examples and API references, please refer to the test files and source code.

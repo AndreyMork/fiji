@@ -40,7 +40,12 @@ test.group('ConfigFactory - `init`', (group) => {
 
 		expect(factory).toBeInstanceOf(Fiji.ConfigFactory.t);
 
-		factory.load({ envSource: { PORT: '4000', DEBUG: 'true' } });
+		factory.load({
+			processEnv: {
+				PORT: '4000',
+				DEBUG: 'true',
+			},
+		});
 		const config = factory.toJS();
 
 		expect(config).toEqual({
@@ -51,13 +56,19 @@ test.group('ConfigFactory - `init`', (group) => {
 		});
 	});
 
-	test('type properties are not accessible', ({ expect }) => {
-		const factory = Fiji.init({});
+	test('', ({ expect, expectTypeOf }) => {
+		const config = {
+			appName: 'TestApp',
+			port: 3000,
+			debug: true,
+		};
+		const factory = Fiji.init(config);
 
-		expect(() => factory.$$config).toThrow(
-			Fiji.ConfigFactory.TypePropertyError,
-		);
-		expect(() => factory.$$patch).toThrow(Fiji.ConfigFactory.TypePropertyError);
+		expect(factory.$$config).toBeUndefined();
+		expectTypeOf(factory.$$config).toEqualTypeOf(config);
+
+		expect(factory.$$patch).toBeUndefined();
+		expectTypeOf(factory.$$patch).toEqualTypeOf<Fiji.patch<typeof config>>();
 	});
 });
 
@@ -408,7 +419,7 @@ test.group('ConfigFactory - modification', () => {
 		}));
 
 		const loadedConfig = extendedFactory.load({
-			envSource: {
+			processEnv: {
 				PORT: '4000',
 				DEBUG: 'true',
 				API_KEY: 'secret-key',

@@ -185,7 +185,7 @@ test.group('Source - EnvSource', () => {
 			PORT: '8080',
 		};
 
-		factory.load({ envSource: mockEnv });
+		factory.load({ processEnv: mockEnv });
 		const result = factory.toJS();
 
 		expect(result).toEqual({
@@ -206,7 +206,7 @@ test.group('Source - EnvSource', () => {
 			SECRET_ENV: 'hidden',
 		};
 
-		factory.load({ envSource: mockEnv });
+		factory.load({ processEnv: mockEnv });
 
 		const resultWithSecrets = factory.toJS({ hideSecrets: false });
 		expect(resultWithSecrets).toEqual({
@@ -255,14 +255,14 @@ test.group('Source - EnvSource', () => {
 			URL: 'https://example.com',
 		};
 
-		expect(() => factory.load({ envSource: validEnv }).toJS()).not.toThrow();
+		expect(() => factory.load({ processEnv: validEnv }).toJS()).not.toThrow();
 
 		const invalidEnv = {
 			PORT: 'not-a-number',
 			URL: 'not-a-url',
 		};
 
-		expect(() => factory.load({ envSource: invalidEnv }).toJS()).toThrow();
+		expect(() => factory.load({ processEnv: invalidEnv }).toJS()).toThrow();
 	});
 
 	test('`toJS` validates json schemas', ({ expect }) => {
@@ -281,7 +281,7 @@ test.group('Source - EnvSource', () => {
 			JSON_ENV: JSON.stringify({ id: 1, name: 'test', tags: ['a', 'b'] }),
 		};
 
-		expect(() => factory.load({ envSource: validEnv }).toJS()).not.toThrow();
+		expect(() => factory.load({ processEnv: validEnv }).toJS()).not.toThrow();
 
 		const invalidEnv = {
 			JSON_ENV: JSON.stringify({
@@ -291,7 +291,7 @@ test.group('Source - EnvSource', () => {
 			}),
 		};
 
-		expect(() => factory.load({ envSource: invalidEnv }).toJS()).toThrow();
+		expect(() => factory.load({ processEnv: invalidEnv }).toJS()).toThrow();
 	});
 
 	test('`envSource` infers correct types', ({ expectTypeOf }) => {
