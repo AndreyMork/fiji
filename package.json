@@ -36,7 +36,7 @@
 		"test": "just test"
 	},
 	"dependencies": {
-		"@ayka/domistrukt": "2.0.0-rc.3",
+		"@ayka/domistrukt": "2.0.0-rc.5",
 		"@glitchdotcom/dotenv": "^1.1.0",
 		"immutable": "^4.3.7",
 		"znv": "^0.4.0",
