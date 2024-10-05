@@ -1,9 +1,11 @@
 # @ayka/fiji
 
 [![NPM Version](https://img.shields.io/npm/v/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
-[![NPM License](https://img.shields.io/npm/l/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
-[![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
+[![NPM License](https://img.shields.io/npm/l/%40ayka%2Ffiji)](https://opensource.org/license/MIT)
 [![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
+
+[![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40ayka%2Ffiji)](https://bundlejs.com/?q=%40ayka%2Ffiji)
+[![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
 
 [![Tests and Code Quality](https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml/badge.svg)](https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml)
 [![CodeQL](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql)
