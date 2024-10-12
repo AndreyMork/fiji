@@ -1,20 +1,52 @@
 # @ayka/fiji
 
-[![NPM Version](https://img.shields.io/npm/v/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
-[![NPM License](https://img.shields.io/npm/l/%40ayka%2Ffiji)](https://opensource.org/license/MIT)
-[![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
+<!-- Package -->
 
-[![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40ayka%2Ffiji)](https://bundlejs.com/?q=%40ayka%2Ffiji)
-[![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Ffiji)](https://www.npmjs.com/package/@ayka/fiji)
+[npm-url]: https://www.npmjs.com/package/@ayka/fiji
+[npm-next-url]: https://www.npmjs.com/package/@ayka/fiji/v/next
+[npm-version-badge]: https://img.shields.io/npm/v/%40ayka%2Ffiji/latest
+[npm-version-next-badge]: https://img.shields.io/npm/v/%40ayka%2Ffiji/next
+[npm-downloads-badge]: https://img.shields.io/npm/dm/%40ayka%2Ffiji
+[npm-unpacked-size-badge]: https://img.shields.io/npm/unpacked-size/%40ayka%2Ffiji
+[bundle-js-url]: https://bundlejs.com/?q=%40ayka%2Ffiji
+[bundle-js-badge]: https://img.shields.io/bundlejs/size/%40ayka%2Ffiji
 
-[![Tests and Code Quality](https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml/badge.svg)](https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml)
-[![CodeQL](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql)
+<!-- GitHub Actions -->
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability)](https://codeclimate.com/github/AndreyMork/fiji/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage)](https://codeclimate.com/github/AndreyMork/fiji/test_coverage)
-[![Mutation testing badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Ffiji%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/fiji/main)
+[actions-tests-and-code-quality]: https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml
+[actions-codeql]: https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql
+[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
+[actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
 
-<!-- ![npms.io](https://img.shields.io/npms-io/final-score/%40ayka%2Ffiji) -->
+<!-- Code Climate -->
+
+[codeclimate-url]: https://codeclimate.com/github/AndreyMork/fiji
+[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
+[codeclimate-test-coverage-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
+
+<!-- Misc -->
+
+[license-url]: https://opensource.org/license/MIT
+[license-badge]: https://img.shields.io/npm/l/%40ayka%2Ffiji
+[mutation-testing-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Ffiji%2Fmain
+[mutation-testing-url]: https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/fiji/main
+
+<!-- Badges -->
+
+[![NPM Version][npm-version-badge]][npm-url]
+[![NPM Version][npm-version-next-badge]][npm-next-url]
+[![NPM License][license-badge]][license-url]
+[![NPM Downloads][npm-downloads-badge]][npm-url]
+
+[![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
+[![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
+
+[![Tests and Code Quality][actions-tests-and-quality-badge]][actions-tests-and-code-quality]
+[![CodeQL][actions-codeql-badge]][actions-codeql]
+
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-url]
+[![Test Coverage][codeclimate-test-coverage-badge]][codeclimate-url]
+[![Mutation testing badge][mutation-testing-badge]][mutation-testing-url]
 
 ## Overview
 
