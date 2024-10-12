@@ -4,6 +4,9 @@
 	"type": "module",
 	"license": "MIT",
 	"description": "@ayka/fiji is a configuration management library that provides a flexible and type-safe way to handle application configurations. It supports environment variables, default values, and secret management.",
+	"publishConfig": {
+		"access": "public"
+	},
 	"keywords": [
 		"config",
 		"configuration",
