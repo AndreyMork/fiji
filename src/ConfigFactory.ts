@@ -1,11 +1,11 @@
 import * as FS from 'node:fs';
+import * as Strukt from '@ayka/domistrukt';
 import * as Dotenv from '@glitchdotcom/dotenv';
 import * as Im from 'immutable';
 import * as Znv from 'znv';
 import * as Zod from 'zod';
 
 import * as Errors from './Errors.ts';
-import * as FlatObject from './FlatObject.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
 
@@ -53,7 +53,7 @@ export type loadOpts = Readonly<{
 	envSources?: readonly Readonly<NodeJS.ProcessEnv>[];
 }>;
 
-type flatConfig = FlatObject.t<Source.t<any>>;
+type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
 
 const makeFlatConfig = <t extends T.rawConfig>(
 	configSource: initParams<t>,
@@ -61,7 +61,7 @@ const makeFlatConfig = <t extends T.rawConfig>(
 	const source =
 		typeof configSource === 'function' ? configSource(ctx) : configSource;
 
-	return FlatObject.init(source).map((item) =>
+	return Strukt.toFlatObject(source).map((item) =>
 		item instanceof Source.t ? item : Source.value(item),
 	);
 };
@@ -82,7 +82,7 @@ export const init = <t extends T.rawConfig>(
 export { ConfigFactory as t };
 export class ConfigFactory<t extends T.rawConfig> {
 	readonly #flatConfig: flatConfig;
-	readonly #secrets: Im.Set<FlatObject.keys>;
+	readonly #secrets: Im.Set<Strukt.FlatObject.keys>;
 
 	static defaults = {
 		secretMarker: '<secret>',

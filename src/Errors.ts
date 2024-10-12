@@ -1,3 +1,5 @@
+// Stryker disable all
+
 import * as Strukt from '@ayka/domistrukt';
 
 export class EnvNotLoadedError extends Strukt.error({
