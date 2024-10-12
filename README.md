@@ -15,8 +15,8 @@
 
 [actions-tests-and-code-quality]: https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml
 [actions-codeql]: https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql
-[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
-[actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
+[actions-tests-and-quality-badge]: https://github.com/AndreyMork/fiji/actions/workflows/tests-and-code-quality.yaml/badge.svg
+[actions-codeql-badge]: https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql/badge.svg
 
 <!-- Code Climate -->
 
