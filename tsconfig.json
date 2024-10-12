@@ -7,7 +7,9 @@
 		"paths": {
 			"#PackageJSON": ["./package.json"],
 			"#Main": ["./src/Main.ts"],
-			"#Src/*": ["./src/*"]
+			"#Src/*": ["./src/*"],
+			"#Types/*": ["./src/Types/*"],
+			"#Types": ["./src/Types/Types.d.ts"]
 		}
 	}
 }
