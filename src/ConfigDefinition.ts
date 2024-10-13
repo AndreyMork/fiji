@@ -33,11 +33,16 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	// readonly #secrets: Im.Set<Strukt.FlatObject.keys>;
 	// readonly #env: Im.Map<string, any>;
 
+	// Type property to provide the types of the config
 	get $$config(): T.config<t> {
 		return undefined as any;
 	}
 
 	get $$fijiConfig(): Config.t<t> {
+		return undefined as any;
+	}
+
+	get $$patch(): T.patch<t> {
 		return undefined as any;
 	}
 
@@ -95,6 +100,26 @@ export class ConfigDefinition<t extends T.rawConfig> {
 				this.$load();
 			}
 		};
+	}
+
+	patch(patch: T.patch<t> | ((ctx: ctx) => T.patch<t>)): ConfigDefinition<t> {
+		const flatPatch = refineDefinition(patch).filter((_, keys) =>
+			this.#flatConfig.has(keys),
+		);
+		const newFlatConfig = this.#flatConfig.merge(flatPatch);
+		return create(newFlatConfig);
+	}
+
+	extend<r extends T.rawConfig>(
+		extensionDef: defParams<r>,
+	): ConfigDefinition<T.extension<t, r>> {
+		const extension = refineDefinition(extensionDef);
+		const newConfig = this.#flatConfig.merge(extension);
+		return create(newConfig);
+	}
+
+	clone(): ConfigDefinition<t> {
+		return create(this.#flatConfig);
 	}
 }
 

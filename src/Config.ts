@@ -44,14 +44,6 @@ export class FijiConfig<t extends T.rawConfig> {
 		return this.#def;
 	}
 
-	// 	$patch() {
-	// 		return this.#def.patch();
-	// 	}
-	//
-	// 	$extend() {
-	// 		return this.#def.extend();
-	// 	}
-
 	get $env() {
 		return this.#env;
 	}
