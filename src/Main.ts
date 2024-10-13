@@ -11,6 +11,7 @@ export * as Config from './Config.ts';
 export type { loadOpts, toJSOpts, FijiConfig as config } from './Config.ts';
 
 export * as Source from './Source.ts';
+export * as Env from './Env.ts';
 export * as Errors from './Errors.ts';
 
 export * as Zod from 'zod';

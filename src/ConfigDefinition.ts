@@ -1,11 +1,8 @@
 import * as Strukt from '@ayka/domistrukt';
-// import type * as Im from 'immutable';
 import * as Znv from 'znv';
 import * as Zod from 'zod';
 
-// import * as Errors from './Errors.ts';
 import * as Config from './Config.ts';
-import * as Env from './Env.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
 
@@ -37,6 +34,10 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	// readonly #env: Im.Map<string, any>;
 
 	get $$config(): T.config<t> {
+		return undefined as any;
+	}
+
+	get $$fijiConfig(): Config.t<t> {
 		return undefined as any;
 	}
 
@@ -79,7 +80,7 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	}
 
 	load(opts?: Config.loadOpts): Config.configInstance<t> {
-		const env = Env.create(opts?.env);
+		const env = Config.env(opts);
 		return Config.init({ def: this, env }).$load();
 	}
 
@@ -89,7 +90,7 @@ export class ConfigDefinition<t extends T.rawConfig> {
 		// @ts-ignore
 		return class extends Config.t<t> {
 			constructor(opts?: Config.loadOpts) {
-				const env = Env.create(opts?.env);
+				const env = Config.env(opts);
 				super({ def: self, env });
 				this.$load();
 			}

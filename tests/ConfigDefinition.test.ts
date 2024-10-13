@@ -6,7 +6,10 @@ import * as Fiji from '#Src/Main.ts';
 const test = Japa.test;
 
 test.group('ConfigDefinition', () => {
-	test('`init` with simple data structure', ({ expect, expectTypeOf }) => {
+	test('`init` should initialize with a simple definition', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const data = {
 			a: 1,
 			b: 2,
@@ -19,7 +22,10 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(def.$$config).toEqualTypeOf<typeof data>();
 	});
 
-	test('`init` with nested data structure', ({ expect, expectTypeOf }) => {
+	test('`init` should initialize with a nested definition', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const data = {
 			a: 1,
 			b: 2,
@@ -38,7 +44,7 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(def.$$config).toEqualTypeOf<typeof data>();
 	});
 
-	test('`init` with function returning data structure', ({
+	test('`init` should initialize with a function returning a definition', ({
 		expect,
 		expectTypeOf,
 	}) => {
@@ -51,10 +57,19 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(def.$$config).toEqualTypeOf<{ a: number; b: number }>();
 	});
 
-	test('`load` configuration correctly', ({ expect, expectTypeOf }) => {
+	test('`load` should load configuration correctly', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const data = {
 			a: 1,
 			b: 2,
+			c: {
+				d: 3,
+				e: {
+					f: 4,
+				},
+			},
 		};
 
 		const def = Fiji.init(data);
@@ -63,10 +78,13 @@ test.group('ConfigDefinition', () => {
 
 		expect(config).toBeInstanceOf(Fiji.Config.t);
 		expect(config.$def).toBe(def);
-		expectTypeOf(config).toMatchTypeOf<{ a: number; b: number }>();
+		expectTypeOf(config).toMatchTypeOf<typeof data>();
 	});
 
-	test('`asClass` converts definition to class', ({ expect, expectTypeOf }) => {
+	test('`asClass` should convert definition to class', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const def = Fiji.init({
 			a: 1,
 		});

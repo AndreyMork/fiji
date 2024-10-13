@@ -1,13 +1,17 @@
 import * as Japa from '@japa/runner';
 
 import * as Fiji from '#Main';
+import * as Config from '#Src/Config.ts';
 
 // import type * as T from '#Src/Types/Types.d.ts';
 
 const test = Japa.test;
 
 test.group('Config', () => {
-	test('creates config with simple definition', ({ expect, expectTypeOf }) => {
+	test('should create config with simple definition', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const config = Fiji.init({
 			value1: 1,
 			value2: 2,
@@ -22,7 +26,10 @@ test.group('Config', () => {
 		}>();
 	});
 
-	test('initializes config using a function', ({ expect, expectTypeOf }) => {
+	test('should initialize config using a function', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const config = Fiji.init(() => ({
 			value1: 1,
 			value2: 2,
@@ -39,7 +46,10 @@ test.group('Config', () => {
 		expectTypeOf(config).not.toMatchTypeOf<{ value: string }>();
 	});
 
-	test('handles nested definition in config', ({ expect, expectTypeOf }) => {
+	test('should handle nested definition in config', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const config = Fiji.init(() => ({
 			value1: 1,
 			value2: 2,
@@ -62,7 +72,7 @@ test.group('Config', () => {
 });
 
 test.group('Config: `toJS`', () => {
-	test('converts config to plain object', ({ expect }) => {
+	test('should convert config to plain object', ({ expect }) => {
 		const config = Fiji.init({
 			value1: 1,
 			value2: 2,
@@ -79,7 +89,7 @@ test.group('Config: `toJS`', () => {
 		});
 	});
 
-	test('hides secret values when specified', ({ expect }) => {
+	test('should hide secret values when specified', ({ expect }) => {
 		const config = Fiji.init((ctx) => ({
 			value: ctx.val(1),
 			secret1: ctx.secret('a'),
@@ -95,7 +105,7 @@ test.group('Config: `toJS`', () => {
 		expect(config.$toJS({ hideSecrets: true })).toEqual(secretTarget);
 	});
 
-	test('handles arrays and nested objects', ({ expect }) => {
+	test('should handle arrays and nested objects', ({ expect }) => {
 		const config = Fiji.init({
 			arr: [1, 2, 3],
 			nested: {
@@ -112,7 +122,7 @@ test.group('Config: `toJS`', () => {
 });
 
 test.group('Config/ValueSource', () => {
-	test('handles ctx.val and ctx.value correctly', ({
+	test('should handle ctx.val and ctx.value correctly', ({
 		expect,
 		expectTypeOf,
 	}) => {
@@ -130,7 +140,7 @@ test.group('Config/ValueSource', () => {
 		expectTypeOf(config).toMatchTypeOf<typeof target>();
 	});
 
-	test('manages secret values correctly', ({ expect, expectTypeOf }) => {
+	test('should manage secret values correctly', ({ expect, expectTypeOf }) => {
 		const config = Fiji.init((ctx) => ({
 			value: ctx.val(1),
 			secret1: ctx.secret('a'),
@@ -154,7 +164,10 @@ test.group('Config/ValueSource', () => {
 		expectTypeOf(config).toMatchTypeOf<typeof target>();
 	});
 
-	test('handles composite values correctly', ({ expect, expectTypeOf }) => {
+	test('should handle composite values correctly', ({
+		expect,
+		expectTypeOf,
+	}) => {
 		const config = Fiji.init((ctx) => ({
 			nested1: {
 				value1: 1,
@@ -179,7 +192,7 @@ test.group('Config/ValueSource', () => {
 		expectTypeOf(config).toMatchTypeOf<typeof target>();
 	});
 
-	test('keeps source values in arrays', ({ expect, expectTypeOf }) => {
+	test('should keep source values in arrays', ({ expect, expectTypeOf }) => {
 		const config = Fiji.init((ctx) => ({
 			arr: [ctx.val(7), ctx.val(8), ctx.val(9)],
 		})).load();
@@ -193,5 +206,19 @@ test.group('Config/ValueSource', () => {
 		expect(config).toEqual(target);
 		expectTypeOf(config).toMatchTypeOf<typeof target>();
 		expectTypeOf(config.arr).not.toEqualTypeOf<number[]>();
+	});
+});
+
+test.group('Config: misc', () => {
+	test('`$load` should throw error when required env value is missing', ({
+		expect,
+	}) => {
+		const def = Fiji.init((ctx) => ({
+			value1: ctx.env('VALUE_1', ctx.z.number()),
+		}));
+
+		const config = Config.init({ def, env: Fiji.Env.create() });
+
+		expect(() => config.$load()).toThrow();
 	});
 });

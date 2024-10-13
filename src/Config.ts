@@ -14,12 +14,14 @@ export type toJSOpts = Readonly<{
 }>;
 
 export type loadOpts = Readonly<{
-	env?: Env.opts;
+	envSource?: Env.opts['source'];
+	envPatch?: Env.opts['patch'];
+	envFiles?: Env.opts['files'];
 }>;
 
 export type params<t extends T.rawConfig> = Readonly<{
 	def: ConfigDefinition.t<t>;
-	env?: Env.t;
+	env: Env.t;
 }>;
 
 export namespace defaults {
@@ -35,7 +37,7 @@ export class FijiConfig<t extends T.rawConfig> {
 
 	constructor(params: params<t>) {
 		this.#def = params.def;
-		this.#env = params.env ?? Env.create();
+		this.#env = params.env;
 	}
 
 	get $def() {
@@ -90,7 +92,7 @@ export class FijiConfig<t extends T.rawConfig> {
 
 	#loadEnv() {
 		this.#parsedEnv = Im.Map(
-			Znv.parseEnv(this.#env.record, this.#def.znvSchema),
+			Znv.parseEnv(this.#env.toJS(), this.#def.znvSchema),
 		);
 
 		return this;
@@ -103,6 +105,45 @@ export class FijiConfig<t extends T.rawConfig> {
 
 		return this.#parsedEnv.get(env.name);
 	}
+
+	$envInfo(opts?: { showUnused: boolean }) {
+		const { showUnused = false } = opts ?? {};
+
+		const envs = this.#def.envs
+			.values()
+			.map((item) => item.name)
+			.toSet();
+
+		const notInSource = envs.filter((name) => !this.#env.has(name));
+
+		const defaulted = notInSource.filter(
+			(name) =>
+				this.#parsedEnv.has(name) && this.#parsedEnv.get(name) !== undefined,
+		);
+		const missing = notInSource.filter(
+			(name) =>
+				this.#parsedEnv.has(name) && this.#parsedEnv.get(name) === undefined,
+		);
+
+		const loaded = envs.filter((name) => this.#env.fromSource(name));
+
+		const patched = envs.filter((name) => this.#env.fromPatch(name));
+
+		const unused = showUnused
+			? this.#env.keys().filter((name) => !envs.has(name))
+			: [];
+
+		const prepare = (collection: Iterable<string>) =>
+			Im.Set(collection).toArray().sort();
+
+		return {
+			loaded: prepare(loaded),
+			defaulted: prepare(defaulted),
+			missing: prepare(missing),
+			patched: prepare(patched),
+			unused: prepare(unused),
+		};
+	}
 }
 
 export type configInstance<t extends T.rawConfig> = FijiConfig<t> & T.config<t>;
@@ -112,3 +153,10 @@ export const init = <t extends T.rawConfig>(
 ): configInstance<t> => {
 	return new FijiConfig<t>(params) as configInstance<t>;
 };
+
+export const env = (opts?: loadOpts) =>
+	Env.create({
+		source: opts?.envSource,
+		patch: opts?.envPatch,
+		files: opts?.envFiles,
+	});

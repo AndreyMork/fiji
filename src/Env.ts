@@ -1,8 +1,7 @@
 import * as FS from 'node:fs';
 import * as Strukt from '@ayka/domistrukt';
 import * as Dotenv from '@glitchdotcom/dotenv';
-
-// import * as Im from 'immutable';
+import * as Im from 'immutable';
 
 export type opts = {
 	source?: Readonly<NodeJS.ProcessEnv>;
@@ -15,29 +14,49 @@ export type opts = {
 // }) {}
 
 export { Env as t };
-class Env extends Strukt.init({
-	constructor(opts?: opts) {
-		const { source = process.env, patch = {}, files = [] } = opts ?? {};
 
-		const fromFiles = files.reduce(
+export type envMap = Im.Map<string, string>;
+export class Env {
+	readonly #envMap: envMap;
+	readonly #fromFiles: envMap;
+	readonly #source: envMap;
+	readonly #patch: envMap;
+
+	constructor(opts?: opts) {
+		const source = opts?.source ?? process.env;
+		const patch = opts?.patch ?? {};
+		const files = opts?.files ?? [];
+
+		this.#fromFiles = files.reduce(
 			(acc, file) =>
-				Object.assign(acc, Dotenv.parseText(FS.readFileSync(file, 'utf-8'))),
-			{},
+				acc.merge(Dotenv.parseText(FS.readFileSync(file, 'utf-8'))),
+			Im.Map() as envMap,
 		);
 
-		const record: NodeJS.ProcessEnv = {
-			...source,
-			...patch,
-			...fromFiles,
-		};
+		this.#source = Im.Map(source) as envMap;
+		this.#patch = Im.Map(patch) as envMap;
+		this.#envMap = this.#source.merge(this.#fromFiles).merge(this.#patch);
+	}
 
-		return {
-			record,
-			source,
-			patch,
-			files,
-		};
-	},
-}) {}
+	toJS() {
+		return this.#envMap.toJS();
+	}
+
+	has(name: string) {
+		return this.#envMap.has(name);
+	}
+
+	fromPatch(name: string) {
+		return this.#patch.has(name) || this.#fromFiles.has(name);
+	}
+
+	fromSource(name: string) {
+		return this.#source.has(name);
+	}
+
+	keys() {
+		return this.#envMap.keySeq().toSet();
+	}
+}
 
 export const create = Strukt.makeConstructor(Env);
