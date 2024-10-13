@@ -3,6 +3,7 @@ import * as Znv from 'znv';
 import * as Zod from 'zod';
 
 import * as Config from './Config.ts';
+import * as Env from './Env.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
 
@@ -20,9 +21,21 @@ const ctx = {
 export type ctx = typeof ctx;
 export type defFn<t extends T.rawConfig> = (ctx: ctx) => t;
 export type defParams<t extends T.rawConfig> = t | defFn<t>;
+export type patchParams<t extends T.rawConfig> = T.patch<t> | defFn<T.patch<t>>;
+
+export type loadEnvOpts = Readonly<{
+	envSource?: Env.opts['source'];
+	envPatch?: Env.opts['patch'];
+	envFiles?: Env.opts['files'];
+}>;
+
+export type loadOpts<config extends T.rawConfig> = Readonly<{
+	patch?: patchParams<config>;
+}> &
+	loadEnvOpts;
 
 export type configClassConstructor<t extends T.rawConfig> = {
-	new (opts?: Config.loadOpts): Config.configInstance<t>;
+	new (opts?: loadOpts<t>): Config.configInstance<t>;
 };
 
 type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
@@ -104,9 +117,10 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	 * const config = def.load();
 	 * console.log(config.$toJS()); // { port: 3000, dbUrl: '...' }
 	 */
-	load(opts?: Config.loadOpts): Config.configInstance<t> {
-		const env = Config.env(opts);
-		return Config.init({ def: this, env }).$load();
+	load(opts?: loadOpts<t>): Config.configInstance<t> {
+		const env = loadEnv(opts);
+		const def = opts?.patch == null ? this : this.patch(opts?.patch);
+		return Config.init({ def, env }).$load();
 	}
 
 	/**
@@ -123,8 +137,8 @@ export class ConfigDefinition<t extends T.rawConfig> {
 
 		// @ts-ignore
 		return class extends Config.t<t> {
-			constructor(opts?: Config.loadOpts) {
-				const env = Config.env(opts);
+			constructor(opts?: loadOpts<t>) {
+				const env = loadEnv(opts);
 				super({ def: self, env });
 				this.$load();
 			}
@@ -219,3 +233,18 @@ export const init = <t extends T.rawConfig>(
 	const flatConfig = refineDefinition(configSource);
 	return create(flatConfig);
 };
+
+/**
+ * Creates an environment configuration.
+ * @param opts - Optional load options.
+ * @returns An environment configuration.
+ * @example
+ * const envConfig = env({ envSource: 'test' });
+ * console.log(envConfig.toJS()); // { ... }
+ */
+export const loadEnv = (opts?: loadEnvOpts) =>
+	Env.create({
+		source: opts?.envSource,
+		patch: opts?.envPatch,
+		files: opts?.envFiles,
+	});

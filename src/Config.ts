@@ -4,18 +4,12 @@ import * as Im from 'immutable';
 
 import type * as T from '#Types';
 import type * as ConfigDefinition from './ConfigDefinition.ts';
-import * as Env from './Env.ts';
+import type * as Env from './Env.ts';
 import * as Errors from './Errors.ts';
 import * as Source from './Source.ts';
 
 export type toJSOpts = Readonly<{
 	hideSecrets?: boolean;
-}>;
-
-export type loadOpts = Readonly<{
-	envSource?: Env.opts['source'];
-	envPatch?: Env.opts['patch'];
-	envFiles?: Env.opts['files'];
 }>;
 
 export type params<t extends T.rawConfig> = Readonly<{
@@ -192,18 +186,3 @@ export const init = <t extends T.rawConfig>(
 ): configInstance<t> => {
 	return new FijiConfig<t>(params) as configInstance<t>;
 };
-
-/**
- * Creates an environment configuration.
- * @param opts - Optional load options.
- * @returns An environment configuration.
- * @example
- * const envConfig = env({ envSource: 'test' });
- * console.log(envConfig.toJS()); // { ... }
- */
-export const env = (opts?: loadOpts) =>
-	Env.create({
-		source: opts?.envSource,
-		patch: opts?.envPatch,
-		files: opts?.envFiles,
-	});

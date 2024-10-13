@@ -97,6 +97,24 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(config).toMatchTypeOf<{ a: number }>();
 	});
 
+	test('`load` should load configuration with a patch', ({ expect }) => {
+		const def = Fiji.init({
+			a: 1,
+			b: 2,
+		});
+
+		const config = def.load({
+			patch: {
+				b: 3,
+			},
+		});
+
+		expect(config.$toJS()).toEqual({
+			a: 1,
+			b: 3,
+		});
+	});
+
 	test('`patch` should update existing properties in the definition', ({
 		expect,
 		expectTypeOf,
