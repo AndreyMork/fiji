@@ -91,9 +91,9 @@ export class ConfigFactory<t extends T.rawConfig> {
 
 	constructor(flatConfig: flatConfig) {
 		this.#flatConfig = flatConfig;
-		this.#secrets = this.#flatConfig.properties
-			.filter((item) => item.value.isSecret)
-			.map((item) => item.keys)
+		this.#secrets = this.#flatConfig
+			.filter((item) => item.isSecret)
+			.keys()
 			.toSet();
 	}
 
@@ -330,9 +330,9 @@ export class ConfigFactory<t extends T.rawConfig> {
 	}
 
 	get #envList(): Im.List<Source.Env<any>> {
-		return this.#flatConfig.properties
-			.filter((item) => item.value instanceof Source.Env)
-			.map((item) => item.value) as Im.List<Source.Env<any>>;
+		return this.#flatConfig
+			.filter((item) => item instanceof Source.Env)
+			.values() as Im.List<Source.Env<any>>;
 	}
 
 	get #znvSchema() {

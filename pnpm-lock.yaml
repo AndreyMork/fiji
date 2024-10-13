@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ayka/domistrukt':
-        specifier: 2.0.0-rc.9
-        version: 2.0.0-rc.9
+        specifier: 2.0.0-rc.11
+        version: 2.0.0-rc.11
       '@glitchdotcom/dotenv':
         specifier: ^1.1.0
         version: 1.1.0
@@ -100,8 +100,9 @@ packages:
   '@ayka/biome-config@1.0.0':
     resolution: {integrity: sha512-OEmmxo/n+AqqqHrQZ32kbAtf92FnlwCQLNU5XDwrF3QjAfoCebmYw00PyCtS5hTxr5IQH9oulV12TF92KXfwPA==}
 
-  '@ayka/domistrukt@2.0.0-rc.9':
-    resolution: {integrity: sha512-QiBBils8m3K1oqxPTjg0CGPy2WCDTkfLrt9N6vlFdl9zYmRCdxBcif3IYYKcPWCzp8rJbJC982i0sjIv+AljbQ==}
+  '@ayka/domistrukt@2.0.0-rc.11':
+    resolution: {integrity: sha512-u6/NFJztJVWIY7t7lWwbkq8OQCwKbvbtJfLyGoo79/jSp/DbeuZjFSbMcwR+EaEohTz0qp9DzniXqPbt0C79qA==}
+    engines: {node: '>=18.0.0'}
 
   '@ayka/tsconfig@1.0.0':
     resolution: {integrity: sha512-JobNqvcMXxi30ziZojPkS1X1LW8DU9cHC6VvTtBPUENLaTBOmtE2VBlOLgfRJ60Tpqm3LITQrtRDFckUatcUSA==}
@@ -2654,7 +2655,7 @@ snapshots:
 
   '@ayka/biome-config@1.0.0': {}
 
-  '@ayka/domistrukt@2.0.0-rc.9':
+  '@ayka/domistrukt@2.0.0-rc.11':
     dependencies:
       immutable: 4.3.7
 
