@@ -115,6 +115,7 @@ check-deps-versions:
 [group('Maintenance')]
 update-deps:
     npx ncu
+    just install
 
 # === Dev ===
 
