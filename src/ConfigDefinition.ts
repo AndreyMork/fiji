@@ -138,8 +138,9 @@ export class ConfigDefinition<t extends T.rawConfig> {
 		// @ts-ignore
 		return class extends Config.t<t> {
 			constructor(opts?: loadOpts<t>) {
+				const def = opts?.patch == null ? self : self.patch(opts.patch);
 				const env = loadEnv(opts);
-				super({ def: self, env });
+				super({ def, env });
 				this.$load();
 			}
 		};

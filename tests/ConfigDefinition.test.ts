@@ -1,11 +1,11 @@
 import * as Japa from '@japa/runner';
 
 import * as Fiji from '#Src/Main.ts';
-// import type * as T from '#Src/Types/Types.d.ts';
 
 const test = Japa.test;
 
 test.group('ConfigDefinition', () => {
+	// Initialization tests
 	test('`init` should initialize with a simple definition', ({
 		expect,
 		expectTypeOf,
@@ -57,6 +57,7 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(def.$$config).toEqualTypeOf<{ a: number; b: number }>();
 	});
 
+	// Loading tests
 	test('`load` should load configuration correctly', ({
 		expect,
 		expectTypeOf,
@@ -81,22 +82,6 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(config).toMatchTypeOf<typeof data>();
 	});
 
-	test('`asClass` should convert definition to class', ({
-		expect,
-		expectTypeOf,
-	}) => {
-		const def = Fiji.init({
-			a: 1,
-		});
-
-		class Config extends def.asClass() {}
-
-		const config = new Config();
-		expect(config).toBeInstanceOf(Fiji.Config.t);
-		expect(config.$def).toBe(def);
-		expectTypeOf(config).toMatchTypeOf<{ a: number }>();
-	});
-
 	test('`load` should load configuration with a patch', ({ expect }) => {
 		const def = Fiji.init({
 			a: 1,
@@ -115,6 +100,43 @@ test.group('ConfigDefinition', () => {
 		});
 	});
 
+	// Class conversion tests
+	test('`asClass` should convert definition to class', ({
+		expect,
+		expectTypeOf,
+	}) => {
+		const def = Fiji.init({
+			a: 1,
+		});
+
+		class Config extends def.asClass() {}
+
+		const config = new Config();
+		expect(config).toBeInstanceOf(Fiji.Config.t);
+		expect(config.$def).toBe(def);
+		expectTypeOf(config).toMatchTypeOf<{ a: number }>();
+	});
+
+	test('`asClass` should allow patching of loaded config', ({ expect }) => {
+		const def = Fiji.init({
+			a: 1,
+			b: 2,
+		});
+
+		class Config extends def.asClass() {}
+		const config = new Config({
+			patch: {
+				b: 3,
+			},
+		});
+
+		expect(config.$toJS()).toEqual({
+			a: 1,
+			b: 3,
+		});
+	});
+
+	// Patching tests
 	test('`patch` should update existing properties in the definition', ({
 		expect,
 		expectTypeOf,
@@ -238,6 +260,7 @@ test.group('ConfigDefinition', () => {
 		expect(config).not.toHaveProperty('c');
 	});
 
+	// Extending tests
 	test('`extend` should add new properties to the definition', ({
 		expect,
 		expectTypeOf,
@@ -286,6 +309,7 @@ test.group('ConfigDefinition', () => {
 		expectTypeOf(config.b).toBeString();
 	});
 
+	// Cloning tests
 	test('`clone` should create a duplicate of the definition', ({ expect }) => {
 		const def = Fiji.init({
 			a: 1,
