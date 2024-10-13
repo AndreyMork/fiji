@@ -3,9 +3,9 @@ import * as Strukt from '@ayka/domistrukt';
 import * as Znv from 'znv';
 import * as Zod from 'zod';
 
-import * as Env from './Env.ts';
 // import * as Errors from './Errors.ts';
-import * as FijiConfig from './FijiConfig.ts';
+import * as Config from './Config.ts';
+import * as Env from './Env.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
 
@@ -14,6 +14,7 @@ const zod = { ...Zod.z, port: Znv.port };
 const ctx = {
 	value: Source.value,
 	val: Source.value,
+	secret: <t>(value: t) => Source.value(value).secret(),
 	env: Source.env,
 	zod,
 	z: zod,
@@ -24,7 +25,7 @@ export type defFn<t extends T.rawConfig> = (ctx: ctx) => t;
 export type defParams<t extends T.rawConfig> = t | defFn<t>;
 
 export type configClassConstructor<t extends T.rawConfig> = {
-	new (opts?: FijiConfig.loadOpts): FijiConfig.configInstance<t>;
+	new (opts?: Config.loadOpts): Config.configInstance<t>;
 };
 
 type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
@@ -34,6 +35,10 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	readonly #flatConfig: flatConfig;
 	// readonly #secrets: Im.Set<Strukt.FlatObject.keys>;
 	// readonly #env: Im.Map<string, any>;
+
+	get $$config(): T.config<t> {
+		return undefined as any;
+	}
 
 	constructor(flatConfig: flatConfig) {
 		this.#flatConfig = flatConfig;
@@ -73,17 +78,17 @@ export class ConfigDefinition<t extends T.rawConfig> {
 		return schema;
 	}
 
-	load(opts?: FijiConfig.loadOpts): FijiConfig.configInstance<t> {
+	load(opts?: Config.loadOpts): Config.configInstance<t> {
 		const env = Env.create(opts?.env);
-		return FijiConfig.init({ def: this, env }).$load();
+		return Config.init({ def: this, env }).$load();
 	}
 
 	asClass(): configClassConstructor<t> {
 		const self = this;
 
 		// @ts-ignore
-		return class extends FijiConfig.t<t> {
-			constructor(opts?: FijiConfig.loadOpts) {
+		return class extends Config.t<t> {
+			constructor(opts?: Config.loadOpts) {
 				const env = Env.create(opts?.env);
 				super({ def: self, env });
 				this.$load();

@@ -10,6 +10,7 @@ export const env = <t extends Zod.ZodType>(
 
 export { Source as t };
 export abstract class Source<t> {
+	// needed for type inference to work
 	get $$t(): t {
 		return undefined as any;
 	}
