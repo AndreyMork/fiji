@@ -41,7 +41,7 @@
 [![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
 [![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
 
-[![ci][actions-ci-badge]][actions-ci]
+[![CI][actions-ci-badge]][actions-ci]
 [![CodeQL][actions-codeql-badge]][actions-codeql]
 
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-url]
