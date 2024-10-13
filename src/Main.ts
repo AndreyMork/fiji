@@ -5,10 +5,16 @@
 
 export * as ConfigDefinition from './ConfigDefinition.ts';
 export { init } from './ConfigDefinition.ts';
-export type { ctx, defFn, defParams } from './ConfigDefinition.ts';
+export type {
+	ctx,
+	defFn,
+	defParams,
+	loadOpts,
+	loadEnvOpts,
+} from './ConfigDefinition.ts';
 
 export * as Config from './Config.ts';
-export type { loadOpts, toJSOpts, FijiConfig as config } from './Config.ts';
+export type { toJSOpts, FijiConfig as config } from './Config.ts';
 
 export * as Source from './Source.ts';
 export * as Env from './Env.ts';
