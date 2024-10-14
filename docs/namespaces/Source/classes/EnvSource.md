@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/Source.ts:34](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L34)
+[src/Source.ts:34](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L34)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Source.ts:17](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L17)
+[src/Source.ts:17](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L17)
 
 ***
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/Source.ts:35](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L35)
+[src/Source.ts:35](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L35)
 
 ***
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[src/Source.ts:36](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L36)
+[src/Source.ts:36](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L36)
 
 ## Accessors
 
@@ -88,7 +88,7 @@
 
 #### Defined in
 
-[src/Source.ts:13](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L13)
+[src/Source.ts:13](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L13)
 
 ## Methods
 
@@ -110,4 +110,4 @@
 
 #### Defined in
 
-[src/Source.ts:19](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Source.ts#L19)
+[src/Source.ts:19](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L19)

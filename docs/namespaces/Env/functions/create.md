@@ -18,4 +18,4 @@
 
 ## Defined in
 
-[src/Env.ts:62](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L62)
+[src/Env.ts:62](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L62)

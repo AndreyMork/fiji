@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[src/Env.ts:23](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L23)
+[src/Env.ts:23](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L23)
 
 ## Methods
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/Env.ts:47](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L47)
+[src/Env.ts:47](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L47)
 
 ***
 
@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[src/Env.ts:51](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L51)
+[src/Env.ts:51](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L51)
 
 ***
 
@@ -76,7 +76,7 @@
 
 #### Defined in
 
-[src/Env.ts:43](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L43)
+[src/Env.ts:43](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L43)
 
 ***
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[src/Env.ts:55](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L55)
+[src/Env.ts:55](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L55)
 
 ***
 
@@ -104,4 +104,4 @@
 
 #### Defined in
 
-[src/Env.ts:39](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Env.ts#L39)
+[src/Env.ts:39](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Env.ts#L39)

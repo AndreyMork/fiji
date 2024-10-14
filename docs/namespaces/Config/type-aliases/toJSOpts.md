@@ -16,4 +16,4 @@
 
 ## Defined in
 
-[src/Config.ts:11](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L11)
+[src/Config.ts:11](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L11)

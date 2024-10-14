@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/ConfigDefinition.ts:67](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L67)
+[src/ConfigDefinition.ts:67](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L67)
 
 ## Accessors
 
@@ -42,7 +42,7 @@ Exposes the types of the config.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:49](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L49)
+[src/ConfigDefinition.ts:49](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L49)
 
 ***
 
@@ -58,7 +58,7 @@ Exposes the Fiji configuration.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:56](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L56)
+[src/ConfigDefinition.ts:56](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L56)
 
 ***
 
@@ -74,7 +74,7 @@ Exposes the patch type.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:63](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L63)
+[src/ConfigDefinition.ts:63](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L63)
 
 ***
 
@@ -90,7 +90,7 @@ Lazily retrieves the environment variables from the configuration.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:85](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L85)
+[src/ConfigDefinition.ts:85](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L85)
 
 ***
 
@@ -104,7 +104,7 @@ Lazily retrieves the environment variables from the configuration.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:92](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L92)
+[src/ConfigDefinition.ts:92](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L92)
 
 ***
 
@@ -120,7 +120,7 @@ Lazily retrieves the values from the configuration.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:75](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L75)
+[src/ConfigDefinition.ts:75](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L75)
 
 ***
 
@@ -134,7 +134,7 @@ Lazily retrieves the values from the configuration.
 
 #### Defined in
 
-[src/ConfigDefinition.ts:97](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L97)
+[src/ConfigDefinition.ts:97](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L97)
 
 ## Methods
 
@@ -161,7 +161,7 @@ console.log(config.$toJS()); // { ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:134](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L134)
+[src/ConfigDefinition.ts:134](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L134)
 
 ***
 
@@ -187,7 +187,7 @@ console.log(config.$toJS()); // { ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:190](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L190)
+[src/ConfigDefinition.ts:190](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L190)
 
 ***
 
@@ -223,7 +223,7 @@ console.log(config.$toJS()); // { additionalKey: 'additionalValue', ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:174](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L174)
+[src/ConfigDefinition.ts:174](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L174)
 
 ***
 
@@ -258,7 +258,7 @@ console.log(config.$toJS()); // { port: 3000, dbUrl: '...' }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:119](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L119)
+[src/ConfigDefinition.ts:119](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L119)
 
 ***
 
@@ -290,4 +290,4 @@ console.log(config.$toJS()); // { newKey: 'newValue', ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:157](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/ConfigDefinition.ts#L157)
+[src/ConfigDefinition.ts:157](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L157)

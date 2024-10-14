@@ -30,7 +30,7 @@ The configuration parameters.
 
 #### Defined in
 
-[src/Config.ts:34](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L34)
+[src/Config.ts:34](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L34)
 
 ## Accessors
 
@@ -46,7 +46,7 @@ Gets the configuration definition.
 
 #### Defined in
 
-[src/Config.ts:42](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L42)
+[src/Config.ts:42](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L42)
 
 ***
 
@@ -62,7 +62,7 @@ Gets the environment configuration.
 
 #### Defined in
 
-[src/Config.ts:49](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L49)
+[src/Config.ts:49](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L49)
 
 ***
 
@@ -78,7 +78,7 @@ Gets the parsed environment variables.
 
 #### Defined in
 
-[src/Config.ts:56](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L56)
+[src/Config.ts:56](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L56)
 
 ## Methods
 
@@ -132,7 +132,7 @@ console.log(envInfo); // { loaded: ['PORT'], defaulted: ['API_KEY'], missing: []
 
 #### Defined in
 
-[src/Config.ts:130](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L130)
+[src/Config.ts:130](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L130)
 
 ***
 
@@ -158,7 +158,7 @@ console.log(config.$toJS()); // { key: 'value', ... }
 
 #### Defined in
 
-[src/Config.ts:98](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L98)
+[src/Config.ts:98](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L98)
 
 ***
 
@@ -189,4 +189,4 @@ console.log(config); // { key: 'value', secretKey: '#secret#' }
 
 #### Defined in
 
-[src/Config.ts:68](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Config.ts#L68)
+[src/Config.ts:68](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L68)

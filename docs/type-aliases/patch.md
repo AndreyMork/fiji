@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[src/Types/Types.d.ts:7](https://github.com/AndreyMork/fiji/blob/fde791600000fa1e2ba950f5f939a73281ac49cc/src/Types/Types.d.ts#L7)
+[src/Types/Types.d.ts:7](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Types/Types.d.ts#L7)
