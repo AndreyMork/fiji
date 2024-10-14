@@ -13,8 +13,6 @@ export type opts = {
 // 	constructor() {}
 // }) {}
 
-export { Env as t };
-
 export type envMap = Im.Map<string, string>;
 export class Env {
 	readonly #envMap: envMap;
@@ -58,5 +56,7 @@ export class Env {
 		return this.#envMap.keySeq().toSet();
 	}
 }
+
+export { Env as t };
 
 export const create = Strukt.makeConstructor(Env);

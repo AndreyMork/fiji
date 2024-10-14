@@ -8,7 +8,6 @@ export const env = <t extends Zod.ZodType>(
 	schema: t,
 ): EnvSource<t> => new EnvSource(name, schema);
 
-export { Source as t };
 export abstract class Source<t> {
 	// needed for type inference to work
 	get $$t(): t {
@@ -22,15 +21,15 @@ export abstract class Source<t> {
 		return this;
 	}
 }
+export { Source as t };
 
-export { ValueSource as Value };
 export class ValueSource<t> extends Source<t> {
 	constructor(readonly value: t) {
 		super();
 	}
 }
+export { ValueSource as Value };
 
-export { EnvSource as Env };
 export class EnvSource<t extends Zod.ZodType> extends Source<Zod.output<t>> {
 	constructor(
 		readonly name: string,
@@ -39,3 +38,5 @@ export class EnvSource<t extends Zod.ZodType> extends Source<Zod.output<t>> {
 		super();
 	}
 }
+
+export { EnvSource as Env };

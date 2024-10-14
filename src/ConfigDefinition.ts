@@ -40,7 +40,6 @@ export type configClassConstructor<t extends T.rawConfig> = {
 
 type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
 
-export { ConfigDefinition as t };
 export class ConfigDefinition<t extends T.rawConfig> {
 	readonly #flatConfig: flatConfig;
 
@@ -192,6 +191,8 @@ export class ConfigDefinition<t extends T.rawConfig> {
 		return create(this.#flatConfig);
 	}
 }
+
+export { ConfigDefinition as t };
 
 export const refineDefinition = <t extends T.rawConfig>(
 	configSource: defParams<t>,

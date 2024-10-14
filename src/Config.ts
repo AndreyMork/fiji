@@ -22,7 +22,6 @@ export namespace defaults {
 	export const hideSecrets = false;
 }
 
-export { FijiConfig as t };
 export class FijiConfig<t extends T.rawConfig> {
 	readonly #def: ConfigDefinition.t<t>;
 	readonly #env: Env.t;
@@ -167,6 +166,8 @@ export class FijiConfig<t extends T.rawConfig> {
 		};
 	}
 }
+
+export { FijiConfig as t };
 
 /**
  * Represents a configuration instance.
