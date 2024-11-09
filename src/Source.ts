@@ -2,11 +2,17 @@ import type * as Zod from 'zod';
 
 export { value as val };
 export const value = <t>(val: t) => new ValueSource(val);
+export const secretValue = <t>(val: t) => value(val).secret();
 
 export const env = <t extends Zod.ZodType>(
 	name: string,
 	schema: t,
 ): EnvSource<t> => new EnvSource(name, schema);
+
+export const secretEnv = <t extends Zod.ZodType>(
+	name: string,
+	schema: t,
+): EnvSource<t> => env(name, schema).secret();
 
 export abstract class Source<t> {
 	// needed for type inference to work

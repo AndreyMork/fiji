@@ -12,8 +12,9 @@ const zod = { ...Zod.z, port: Znv.port };
 const ctx = {
 	value: Source.value,
 	val: Source.value,
-	secret: <t>(value: t) => Source.value(value).secret(),
+	secret: Source.secretValue,
 	env: Source.env,
+	secretEnv: Source.secretEnv,
 	zod,
 	z: zod,
 } as const;
@@ -120,6 +121,10 @@ export class ConfigDefinition<t extends T.rawConfig> {
 		const env = loadEnv(opts);
 		const def = opts?.patch == null ? this : this.patch(opts?.patch);
 		return Config.init({ def, env }).$load();
+	}
+
+	makeLoader() {
+		return (opts?: loadOpts<t>) => this.load(opts);
 	}
 
 	/**
