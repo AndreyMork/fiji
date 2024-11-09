@@ -30,55 +30,61 @@ The configuration parameters.
 
 #### Defined in
 
-[src/Config.ts:34](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L34)
+[src/Config.ts:34](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L34)
 
 ## Accessors
 
 ### $def
 
-> `get` **$def**(): [`ConfigDefinition`](../../ConfigDefinition/classes/ConfigDefinition.md)\<`t`\>
+#### Get Signature
+
+> **get** **$def**(): [`ConfigDefinition`](../../ConfigDefinition/classes/ConfigDefinition.md)\<`t`\>
 
 Gets the configuration definition.
 
-#### Returns
+##### Returns
 
 [`ConfigDefinition`](../../ConfigDefinition/classes/ConfigDefinition.md)\<`t`\>
 
 #### Defined in
 
-[src/Config.ts:42](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L42)
+[src/Config.ts:42](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L42)
 
 ***
 
 ### $env
 
-> `get` **$env**(): [`Env`](../../Env/classes/Env.md)
+#### Get Signature
+
+> **get** **$env**(): [`Env`](../../Env/classes/Env.md)
 
 Gets the environment configuration.
 
-#### Returns
+##### Returns
 
 [`Env`](../../Env/classes/Env.md)
 
 #### Defined in
 
-[src/Config.ts:49](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L49)
+[src/Config.ts:49](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L49)
 
 ***
 
 ### $parsedEnv
 
-> `get` **$parsedEnv**(): `object`
+#### Get Signature
+
+> **get** **$parsedEnv**(): `object`
 
 Gets the parsed environment variables.
 
-#### Returns
+##### Returns
 
 `object`
 
 #### Defined in
 
-[src/Config.ts:56](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L56)
+[src/Config.ts:56](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L56)
 
 ## Methods
 
@@ -132,7 +138,7 @@ console.log(envInfo); // { loaded: ['PORT'], defaulted: ['API_KEY'], missing: []
 
 #### Defined in
 
-[src/Config.ts:130](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L130)
+[src/Config.ts:130](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L130)
 
 ***
 
@@ -158,7 +164,7 @@ console.log(config.$toJS()); // { key: 'value', ... }
 
 #### Defined in
 
-[src/Config.ts:98](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L98)
+[src/Config.ts:98](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L98)
 
 ***
 
@@ -189,4 +195,4 @@ console.log(config); // { key: 'value', secretKey: '#secret#' }
 
 #### Defined in
 
-[src/Config.ts:68](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Config.ts#L68)
+[src/Config.ts:68](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Config.ts#L68)

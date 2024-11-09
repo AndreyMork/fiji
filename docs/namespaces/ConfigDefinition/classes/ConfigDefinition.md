@@ -18,7 +18,7 @@
 
 #### Parameters
 
-• **flatConfig**: `flatConfig`
+• **flatConfig**: [`flatConfig`](../type-aliases/flatConfig.md)
 
 #### Returns
 
@@ -26,115 +26,129 @@
 
 #### Defined in
 
-[src/ConfigDefinition.ts:67](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L67)
+[src/ConfigDefinition.ts:68](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L68)
 
 ## Accessors
 
 ### $$config
 
-> `get` **$$config**(): [`config`](../../Types/type-aliases/config.md)\<`t`\>
+#### Get Signature
+
+> **get** **$$config**(): [`config`](../../Types/type-aliases/config.md)\<`t`\>
 
 Exposes the types of the config.
 
-#### Returns
+##### Returns
 
 [`config`](../../Types/type-aliases/config.md)\<`t`\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:49](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L49)
+[src/ConfigDefinition.ts:50](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L50)
 
 ***
 
 ### $$fijiConfig
 
-> `get` **$$fijiConfig**(): [`FijiConfig`](../../Config/classes/FijiConfig.md)\<`t`\>
+#### Get Signature
+
+> **get** **$$fijiConfig**(): [`FijiConfig`](../../Config/classes/FijiConfig.md)\<`t`\>
 
 Exposes the Fiji configuration.
 
-#### Returns
+##### Returns
 
 [`FijiConfig`](../../Config/classes/FijiConfig.md)\<`t`\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:56](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L56)
+[src/ConfigDefinition.ts:57](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L57)
 
 ***
 
 ### $$patch
 
-> `get` **$$patch**(): `Partial`\<\{ \[key in string \| number \| symbol\]: t\[key\] extends Source\<r\> ? configValue\<r\> : t\[key\] extends any\[\] ? configValue\<any\[any\]\> : t\[key\] extends rawConfig ? Partial\<\{ \[key in string \| number \| symbol\]: any\[any\]\[key\] extends Source\<r\> ? configValue\<r\> : any\[any\]\[key\] extends any\[\] ? configValue\<(...)\[(...)\]\> : (...)\[(...)\] extends rawConfig ? Partial\<(...)\> : configValue\<(...)\> \}\> : configValue\<t\[key\]\> \}\>
+#### Get Signature
+
+> **get** **$$patch**(): `Partial`\<\{ \[key in string \| number \| symbol\]: t\[key\] extends Source\<r\> ? configValue\<r\> : t\[key\] extends any\[\] ? configValue\<any\[any\]\> : t\[key\] extends rawConfig ? Partial\<\{ \[key in string \| number \| symbol\]: any\[any\]\[key\] extends Source\<r\> ? configValue\<r\> : any\[any\]\[key\] extends any\[\] ? configValue\<(...)\[(...)\]\> : (...)\[(...)\] extends rawConfig ? Partial\<(...)\> : configValue\<(...)\> \}\> : configValue\<t\[key\]\> \}\>
 
 Exposes the patch type.
 
-#### Returns
+##### Returns
 
 `Partial`\<\{ \[key in string \| number \| symbol\]: t\[key\] extends Source\<r\> ? configValue\<r\> : t\[key\] extends any\[\] ? configValue\<any\[any\]\> : t\[key\] extends rawConfig ? Partial\<\{ \[key in string \| number \| symbol\]: any\[any\]\[key\] extends Source\<r\> ? configValue\<r\> : any\[any\]\[key\] extends any\[\] ? configValue\<(...)\[(...)\]\> : (...)\[(...)\] extends rawConfig ? Partial\<(...)\> : configValue\<(...)\> \}\> : configValue\<t\[key\]\> \}\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:63](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L63)
+[src/ConfigDefinition.ts:64](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L64)
 
 ***
 
 ### envs
 
-> `get` **envs**(): `FlatObject`\<[`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
+#### Get Signature
+
+> **get** **envs**(): `FlatObject`\<[`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
 
 Lazily retrieves the environment variables from the configuration.
 
-#### Returns
+##### Returns
 
 `FlatObject`\<[`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:85](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L85)
+[src/ConfigDefinition.ts:86](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L86)
 
 ***
 
 ### sources
 
-> `get` **sources**(): `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\> \| [`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
+#### Get Signature
 
-#### Returns
+> **get** **sources**(): `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\> \| [`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
+
+##### Returns
 
 `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\> \| [`EnvSource`](../../Source/classes/EnvSource.md)\<`any`\>\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:92](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L92)
+[src/ConfigDefinition.ts:93](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L93)
 
 ***
 
 ### values
 
-> `get` **values**(): `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\>\>
+#### Get Signature
+
+> **get** **values**(): `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\>\>
 
 Lazily retrieves the values from the configuration.
 
-#### Returns
+##### Returns
 
 `FlatObject`\<[`ValueSource`](../../Source/classes/ValueSource.md)\<`any`\>\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:75](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L75)
+[src/ConfigDefinition.ts:76](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L76)
 
 ***
 
 ### znvSchema
 
-> `get` **znvSchema**(): `Record`\<`string`, `ZodType`\<`any`, [`ZodTypeDef`](../../Zod/namespaces/z/interfaces/ZodTypeDef.md), `any`\>\>
+#### Get Signature
 
-#### Returns
+> **get** **znvSchema**(): `Record`\<`string`, `ZodType`\<`any`, [`ZodTypeDef`](../../Zod/namespaces/z/interfaces/ZodTypeDef.md), `any`\>\>
+
+##### Returns
 
 `Record`\<`string`, `ZodType`\<`any`, [`ZodTypeDef`](../../Zod/namespaces/z/interfaces/ZodTypeDef.md), `any`\>\>
 
 #### Defined in
 
-[src/ConfigDefinition.ts:97](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L97)
+[src/ConfigDefinition.ts:98](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L98)
 
 ## Methods
 
@@ -161,7 +175,7 @@ console.log(config.$toJS()); // { ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:134](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L134)
+[src/ConfigDefinition.ts:139](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L139)
 
 ***
 
@@ -187,7 +201,7 @@ console.log(config.$toJS()); // { ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:190](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L190)
+[src/ConfigDefinition.ts:195](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L195)
 
 ***
 
@@ -223,7 +237,7 @@ console.log(config.$toJS()); // { additionalKey: 'additionalValue', ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:174](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L174)
+[src/ConfigDefinition.ts:179](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L179)
 
 ***
 
@@ -258,7 +272,29 @@ console.log(config.$toJS()); // { port: 3000, dbUrl: '...' }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:119](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L119)
+[src/ConfigDefinition.ts:120](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L120)
+
+***
+
+### makeLoader()
+
+> **makeLoader**(): (`opts`?) => [`configInstance`](../../Config/type-aliases/configInstance.md)\<`t`\>
+
+#### Returns
+
+`Function`
+
+##### Parameters
+
+• **opts?**: [`loadOpts`](../type-aliases/loadOpts.md)\<`t`\>
+
+##### Returns
+
+[`configInstance`](../../Config/type-aliases/configInstance.md)\<`t`\>
+
+#### Defined in
+
+[src/ConfigDefinition.ts:126](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L126)
 
 ***
 
@@ -290,4 +326,4 @@ console.log(config.$toJS()); // { newKey: 'newValue', ... }
 
 #### Defined in
 
-[src/ConfigDefinition.ts:157](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L157)
+[src/ConfigDefinition.ts:162](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L162)

@@ -9,7 +9,7 @@ import type * as T from './Types/Types.ts';
 
 const zod = { ...Zod.z, port: Znv.port };
 
-const ctx = {
+export const ctx = {
 	value: Source.value,
 	val: Source.value,
 	secret: Source.secretValue,
@@ -39,7 +39,7 @@ export type configClassConstructor<t extends T.rawConfig> = {
 	new (opts?: loadOpts<t>): Config.configInstance<t>;
 };
 
-type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
+export type flatConfig = Strukt.FlatObject.t<Source.t<any>>;
 
 export class ConfigDefinition<t extends T.rawConfig> {
 	readonly #flatConfig: flatConfig;

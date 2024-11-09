@@ -17,6 +17,8 @@
 ### Functions
 
 - [env](functions/env.md)
+- [secretEnv](functions/secretEnv.md)
+- [secretValue](functions/secretValue.md)
 - [val](functions/val.md)
 
 ## References

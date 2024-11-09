@@ -146,9 +146,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:799
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -164,9 +166,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### enum
 
-> `get` **enum**(): `T`
+#### Get Signature
 
-#### Returns
+> **get** **enum**(): `T`
+
+##### Returns
 
 `T`
 

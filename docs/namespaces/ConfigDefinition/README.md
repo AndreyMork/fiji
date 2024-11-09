@@ -18,9 +18,14 @@
 - [ctx](type-aliases/ctx.md)
 - [defFn](type-aliases/defFn.md)
 - [defParams](type-aliases/defParams.md)
+- [flatConfig](type-aliases/flatConfig.md)
 - [loadEnvOpts](type-aliases/loadEnvOpts.md)
 - [loadOpts](type-aliases/loadOpts.md)
 - [patchParams](type-aliases/patchParams.md)
+
+### Variables
+
+- [ctx](variables/ctx.md)
 
 ### Functions
 

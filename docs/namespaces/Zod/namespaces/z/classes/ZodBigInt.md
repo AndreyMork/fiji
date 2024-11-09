@@ -176,9 +176,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:350
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -194,9 +196,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### maxValue
 
-> `get` **maxValue**(): `null` \| `bigint`
+#### Get Signature
 
-#### Returns
+> **get** **maxValue**(): `null` \| `bigint`
+
+##### Returns
 
 `null` \| `bigint`
 
@@ -208,9 +212,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:373
 
 ### minValue
 
-> `get` **minValue**(): `null` \| `bigint`
+#### Get Signature
 
-#### Returns
+> **get** **minValue**(): `null` \| `bigint`
+
+##### Returns
 
 `null` \| `bigint`
 

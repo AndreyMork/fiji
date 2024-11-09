@@ -14,7 +14,7 @@ Renames and re-exports [FijiConfig](namespaces/Config/classes/FijiConfig.md)
 
 ### ctx
 
-Re-exports [ctx](namespaces/ConfigDefinition/type-aliases/ctx.md)
+Re-exports [ctx](namespaces/ConfigDefinition/variables/ctx.md)
 
 ***
 

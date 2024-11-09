@@ -8,7 +8,7 @@
 
 ## Extends
 
-- `StruktErrorBase`\<`this`\>
+- `ErrorStruktBase`\<`this`\>
 
 ## Constructors
 
@@ -30,7 +30,7 @@
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:294
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:345
 
 ### new InternalFijiError()
 
@@ -52,7 +52,7 @@ node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:295
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:346
 
 ## Properties
 
@@ -80,7 +80,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:288
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:339
 
 ***
 
@@ -94,7 +94,7 @@ node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:289
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:340
 
 ***
 

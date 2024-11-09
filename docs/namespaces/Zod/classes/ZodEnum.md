@@ -164,9 +164,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:785
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -182,9 +184,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### enum
 
-> `get` **enum**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+#### Get Signature
 
-#### Returns
+> **get** **enum**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+
+##### Returns
 
 [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
 
@@ -196,9 +200,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:780
 
 ### Enum
 
-> `get` **Enum**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+#### Get Signature
 
-#### Returns
+> **get** **Enum**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+
+##### Returns
 
 [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
 
@@ -210,9 +216,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:782
 
 ### options
 
-> `get` **options**(): `T`
+#### Get Signature
 
-#### Returns
+> **get** **options**(): `T`
+
+##### Returns
 
 `T`
 
@@ -224,9 +232,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:779
 
 ### Values
 
-> `get` **Values**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+#### Get Signature
 
-#### Returns
+> **get** **Values**(): [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
+
+##### Returns
 
 [`Values`](../namespaces/z/type-aliases/Values.md)\<`T`\>
 

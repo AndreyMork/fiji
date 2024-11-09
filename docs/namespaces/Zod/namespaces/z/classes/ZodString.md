@@ -136,9 +136,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:259
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -154,9 +156,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### isBase64
 
-> `get` **isBase64**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isBase64**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -168,9 +172,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:256
 
 ### isCUID
 
-> `get` **isCUID**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isCUID**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -182,9 +188,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:252
 
 ### isCUID2
 
-> `get` **isCUID2**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isCUID2**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -196,9 +204,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:253
 
 ### isDate
 
-> `get` **isDate**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isDate**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -210,9 +220,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:244
 
 ### isDatetime
 
-> `get` **isDatetime**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isDatetime**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -224,9 +236,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:243
 
 ### isDuration
 
-> `get` **isDuration**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isDuration**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -238,9 +252,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:246
 
 ### isEmail
 
-> `get` **isEmail**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isEmail**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -252,9 +268,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:247
 
 ### isEmoji
 
-> `get` **isEmoji**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isEmoji**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -266,9 +284,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:249
 
 ### isIP
 
-> `get` **isIP**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isIP**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -280,9 +300,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:255
 
 ### isNANOID
 
-> `get` **isNANOID**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isNANOID**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -294,9 +316,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:251
 
 ### isTime
 
-> `get` **isTime**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isTime**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -308,9 +332,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:245
 
 ### isULID
 
-> `get` **isULID**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isULID**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -322,9 +348,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:254
 
 ### isURL
 
-> `get` **isURL**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isURL**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -336,9 +364,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:248
 
 ### isUUID
 
-> `get` **isUUID**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isUUID**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -350,9 +380,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:250
 
 ### maxLength
 
-> `get` **maxLength**(): `null` \| `number`
+#### Get Signature
 
-#### Returns
+> **get** **maxLength**(): `null` \| `number`
+
+##### Returns
 
 `null` \| `number`
 
@@ -364,9 +396,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:258
 
 ### minLength
 
-> `get` **minLength**(): `null` \| `number`
+#### Get Signature
 
-#### Returns
+> **get** **minLength**(): `null` \| `number`
+
+##### Returns
 
 `null` \| `number`
 

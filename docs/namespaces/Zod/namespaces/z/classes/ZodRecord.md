@@ -124,9 +124,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -142,9 +144,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### element
 
-> `get` **element**(): `Value`
+#### Get Signature
 
-#### Returns
+> **get** **element**(): `Value`
+
+##### Returns
 
 `Value`
 
@@ -156,9 +160,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:685
 
 ### keySchema
 
-> `get` **keySchema**(): `Key`
+#### Get Signature
 
-#### Returns
+> **get** **keySchema**(): `Key`
+
+##### Returns
 
 `Key`
 
@@ -170,9 +176,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:682
 
 ### valueSchema
 
-> `get` **valueSchema**(): `Value`
+#### Get Signature
 
-#### Returns
+> **get** **valueSchema**(): `Value`
+
+##### Returns
 
 `Value`
 

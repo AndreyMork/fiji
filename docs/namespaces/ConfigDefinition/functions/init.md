@@ -45,4 +45,4 @@ console.log(complexConfig.$toJS({ hideSecrets: true })); // { port: 3000, apiKey
 
 ## Defined in
 
-[src/ConfigDefinition.ts:232](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L232)
+[src/ConfigDefinition.ts:237](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L237)

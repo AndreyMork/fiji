@@ -196,9 +196,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:297
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -214,9 +216,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### isFinite
 
-> `get` **isFinite**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isFinite**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -228,9 +232,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:326
 
 ### isInt
 
-> `get` **isInt**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isInt**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -242,9 +248,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:325
 
 ### maxValue
 
-> `get` **maxValue**(): `null` \| `number`
+#### Get Signature
 
-#### Returns
+> **get** **maxValue**(): `null` \| `number`
+
+##### Returns
 
 `null` \| `number`
 
@@ -256,9 +264,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:324
 
 ### minValue
 
-> `get` **minValue**(): `null` \| `number`
+#### Get Signature
 
-#### Returns
+> **get** **minValue**(): `null` \| `number`
+
+##### Returns
 
 `null` \| `number`
 

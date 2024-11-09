@@ -6,7 +6,7 @@
 
 # Function: refineDefinition()
 
-> **refineDefinition**\<`t`\>(`configSource`): `flatConfig`
+> **refineDefinition**\<`t`\>(`configSource`): [`flatConfig`](../type-aliases/flatConfig.md)
 
 ## Type Parameters
 
@@ -18,8 +18,8 @@
 
 ## Returns
 
-`flatConfig`
+[`flatConfig`](../type-aliases/flatConfig.md)
 
 ## Defined in
 
-[src/ConfigDefinition.ts:197](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/ConfigDefinition.ts#L197)
+[src/ConfigDefinition.ts:202](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/ConfigDefinition.ts#L202)

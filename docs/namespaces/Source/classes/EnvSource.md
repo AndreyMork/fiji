@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/Source.ts:34](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L34)
+[src/Source.ts:40](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L40)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Source.ts:17](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L17)
+[src/Source.ts:23](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L23)
 
 ***
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/Source.ts:35](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L35)
+[src/Source.ts:41](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L41)
 
 ***
 
@@ -70,15 +70,17 @@
 
 #### Defined in
 
-[src/Source.ts:36](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L36)
+[src/Source.ts:42](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L42)
 
 ## Accessors
 
 ### $$t
 
-> `get` **$$t**(): `t`
+#### Get Signature
 
-#### Returns
+> **get** **$$t**(): `t`
+
+##### Returns
 
 `t`
 
@@ -88,7 +90,7 @@
 
 #### Defined in
 
-[src/Source.ts:13](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L13)
+[src/Source.ts:19](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L19)
 
 ## Methods
 
@@ -110,4 +112,4 @@
 
 #### Defined in
 
-[src/Source.ts:19](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L19)
+[src/Source.ts:25](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L25)

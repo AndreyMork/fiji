@@ -136,9 +136,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:412
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -154,9 +156,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### maxDate
 
-> `get` **maxDate**(): `null` \| `Date`
+#### Get Signature
 
-#### Returns
+> **get** **maxDate**(): `null` \| `Date`
+
+##### Returns
 
 `null` \| `Date`
 
@@ -168,9 +172,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:411
 
 ### minDate
 
-> `get` **minDate**(): `null` \| `Date`
+#### Get Signature
 
-#### Returns
+> **get** **minDate**(): `null` \| `Date`
+
+##### Returns
 
 `null` \| `Date`
 

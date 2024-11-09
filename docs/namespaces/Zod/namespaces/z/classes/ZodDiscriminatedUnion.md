@@ -124,9 +124,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
 
 ### description
 
-> `get` **description**(): `undefined` \| `string`
+#### Get Signature
 
-#### Returns
+> **get** **description**(): `undefined` \| `string`
+
+##### Returns
 
 `undefined` \| `string`
 
@@ -142,9 +144,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### discriminator
 
-> `get` **discriminator**(): `Discriminator`
+#### Get Signature
 
-#### Returns
+> **get** **discriminator**(): `Discriminator`
+
+##### Returns
 
 `Discriminator`
 
@@ -156,9 +160,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:622
 
 ### options
 
-> `get` **options**(): `Options`
+#### Get Signature
 
-#### Returns
+> **get** **options**(): `Options`
+
+##### Returns
 
 `Options`
 
@@ -170,9 +176,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:623
 
 ### optionsMap
 
-> `get` **optionsMap**(): `Map`\<[`Primitive`](../type-aliases/Primitive.md), [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`any`\>\>
+#### Get Signature
 
-#### Returns
+> **get** **optionsMap**(): `Map`\<[`Primitive`](../type-aliases/Primitive.md), [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`any`\>\>
+
+##### Returns
 
 `Map`\<[`Primitive`](../type-aliases/Primitive.md), [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`any`\>\>
 

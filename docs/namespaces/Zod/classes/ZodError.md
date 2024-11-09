@@ -170,7 +170,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:143
+node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:143
 
 ***
 
@@ -184,15 +184,17 @@ node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:14
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:145
+node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:145
 
 ## Accessors
 
 ### errors
 
-> `get` **errors**(): [`ZodIssue`](../namespaces/z/type-aliases/ZodIssue.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **errors**(): [`ZodIssue`](../namespaces/z/type-aliases/ZodIssue.md)[]
+
+##### Returns
 
 [`ZodIssue`](../namespaces/z/type-aliases/ZodIssue.md)[]
 
@@ -204,9 +206,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:137
 
 ### formErrors
 
-> `get` **formErrors**(): [`typeToFlattenedError`](../namespaces/z/type-aliases/typeToFlattenedError.md)\<`T`, `string`\>
+#### Get Signature
 
-#### Returns
+> **get** **formErrors**(): [`typeToFlattenedError`](../namespaces/z/type-aliases/typeToFlattenedError.md)\<`T`, `string`\>
+
+##### Returns
 
 [`typeToFlattenedError`](../namespaces/z/type-aliases/typeToFlattenedError.md)\<`T`, `string`\>
 
@@ -218,9 +222,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:150
 
 ### isEmpty
 
-> `get` **isEmpty**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isEmpty**(): `boolean`
+
+##### Returns
 
 `boolean`
 
@@ -232,9 +238,11 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:145
 
 ### message
 
-> `get` **message**(): `string`
+#### Get Signature
 
-#### Returns
+> **get** **message**(): `string`
+
+##### Returns
 
 `string`
 
@@ -376,4 +384,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:136
+node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:136

@@ -8,7 +8,7 @@
 
 ## Extends
 
-- `StruktErrorBase`\<`this`\> & `object`
+- `ErrorStruktBase`\<`this`\> & `object`
 
 ## Constructors
 
@@ -38,7 +38,7 @@ Strukt.error(\{
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:328
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:379
 
 ## Properties
 
@@ -82,7 +82,7 @@ Strukt.error(\{
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:325
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:376
 
 ***
 
@@ -102,7 +102,7 @@ Strukt.error(\{
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:288
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:339
 
 ***
 
@@ -122,7 +122,7 @@ Strukt.error(\{
 
 #### Defined in
 
-node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.11/node\_modules/@ayka/domistrukt/dist/Main.d.ts:289
+node\_modules/.pnpm/@ayka+domistrukt@2.0.0-rc.24/node\_modules/@ayka/domistrukt/dist/Main.d.ts:340
 
 ***
 

@@ -22,4 +22,4 @@
 
 ## Defined in
 
-[src/Source.ts:4](https://github.com/AndreyMork/fiji/blob/144c0091223d6b00e7f3dad83fbdc3098be7f48c/src/Source.ts#L4)
+[src/Source.ts:4](https://github.com/AndreyMork/fiji/blob/12b645d5d3b10e56502863abdc8c7fe71f7e6190/src/Source.ts#L4)
