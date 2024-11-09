@@ -1,5 +1,6 @@
 import * as Znv from 'znv';
 
+import * as Strukt from '@ayka/domistrukt';
 import * as Im from 'immutable';
 
 import type * as T from '#Types';
@@ -57,6 +58,29 @@ export class FijiConfig<t extends T.rawConfig> {
 		return this.#parsedEnv.toJS();
 	}
 
+	#switcher = Strukt.compileSwitch<Source.source>()
+		.when(
+			(item, ctx) => ctx.data.hideSecrets && item.isSecret,
+			() => defaults.secretMarker,
+		)
+		.whenInstance(Source.Env, (env) => this.#getEnv(env))
+		.whenInstance(Source.Value, (value) => value.value)
+		.whenInstance(Source.Mapped, (mapped, ctx) =>
+			mapped.fn(this.#getValue(mapped.source as any, ctx.data)),
+		)
+		.verify()
+		.otherwiseThrow(
+			(data) =>
+				new Errors.InternalFijiError(`Unknown source type: ${data.target}`, {
+					cause: data.cause,
+				}),
+		)
+		.saveStrict();
+
+	#getValue(value: Source.source, opts: Required<toJSOpts>): any {
+		return this.#switcher(value, opts);
+	}
+
 	/**
 	 * Converts the configuration to a JavaScript object.
 	 * @param opts - Options for conversion, such as hiding secret values.
@@ -66,23 +90,14 @@ export class FijiConfig<t extends T.rawConfig> {
 	 * console.log(config); // { key: 'value', secretKey: '#secret#' }
 	 */
 	$toJS(opts?: toJSOpts): T.config<t> {
-		const { hideSecrets = defaults.hideSecrets } = opts ?? {};
+		const params = {
+			hideSecrets: opts?.hideSecrets ?? defaults.hideSecrets,
+			...opts,
+		};
 
-		const result = this.#def.sources.map((item) => {
-			if (hideSecrets && item.isSecret) {
-				return defaults.secretMarker;
-			}
-
-			if (item instanceof Source.Env) {
-				return this.#getEnv(item);
-			}
-
-			if (item instanceof Source.ValueSource) {
-				return item.value;
-			}
-
-			throw new Errors.InternalFijiError(`Unknown source type: ${item}`);
-		});
+		const result = this.#def.sources.map((item) =>
+			this.#getValue(item, params),
+		);
 
 		return result.toJS();
 	}

@@ -35,7 +35,7 @@
 		"preversion": "just full-check-strict prepack"
 	},
 	"dependencies": {
-		"@ayka/domistrukt": "2.0.0-rc.24",
+		"@ayka/domistrukt": "2.0.0-rc.28",
 		"@glitchdotcom/dotenv": "^1.1.0",
 		"immutable": "^5.0.2",
 		"znv": "^0.4.0",

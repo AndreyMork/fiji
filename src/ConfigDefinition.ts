@@ -4,6 +4,7 @@ import * as Zod from 'zod';
 
 import * as Config from './Config.ts';
 import * as Env from './Env.ts';
+import * as Helpers from './Helpers.ts';
 import * as Source from './Source.ts';
 import type * as T from './Types/Types.ts';
 
@@ -15,6 +16,8 @@ export const ctx = {
 	secret: Source.secretValue,
 	env: Source.env,
 	secretEnv: Source.secretEnv,
+	enumStrukt: Helpers.enumStrukt,
+	logLevel: Helpers.logLevel,
 	zod,
 	z: zod,
 } as const;
@@ -90,8 +93,15 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	}
 
 	@Strukt.lazy()
+	get mapped() {
+		return this.#flatConfig.filter(
+			(item) => item instanceof Source.Mapped,
+		) as Strukt.FlatObject.t<Source.Mapped<any, any>>;
+	}
+
+	@Strukt.lazy()
 	get sources() {
-		return this.values.merge(this.envs);
+		return this.values.merge(this.envs).merge(this.mapped);
 	}
 
 	@Strukt.lazy({ useValue: false })

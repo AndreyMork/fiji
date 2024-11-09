@@ -1,20 +1,10 @@
 import type * as Zod from 'zod';
 
-export { value as val };
-export const value = <t>(val: t) => new ValueSource(val);
-export const secretValue = <t>(val: t) => value(val).secret();
+export { Source, Source as t };
 
-export const env = <t extends Zod.ZodType>(
-	name: string,
-	schema: t,
-): EnvSource<t> => new EnvSource(name, schema);
+export type source = EnvSource<any> | ValueSource<any> | MappedSource<any, any>;
 
-export const secretEnv = <t extends Zod.ZodType>(
-	name: string,
-	schema: t,
-): EnvSource<t> => env(name, schema).secret();
-
-export abstract class Source<t> {
+abstract class Source<t> {
 	// needed for type inference to work
 	get $$t(): t {
 		return undefined as any;
@@ -26,17 +16,35 @@ export abstract class Source<t> {
 		this.isSecret = value;
 		return this;
 	}
-}
-export { Source as t };
 
-export class ValueSource<t> extends Source<t> {
+	map<output>(fn: (input: t) => output) {
+		const mapped = new MappedSource(this, fn);
+
+		if (this.isSecret) {
+			return mapped.secret();
+		}
+
+		return mapped;
+	}
+}
+
+// Value
+
+export { ValueSource, ValueSource as Value };
+class ValueSource<t> extends Source<t> {
 	constructor(readonly value: t) {
 		super();
 	}
 }
-export { ValueSource as Value };
 
-export class EnvSource<t extends Zod.ZodType> extends Source<Zod.output<t>> {
+export { value as val };
+export const value = <t>(val: t) => new ValueSource(val);
+export const secretValue = <t>(val: t) => value(val).secret();
+
+// Env
+
+export { EnvSource, EnvSource as Env };
+class EnvSource<t extends Zod.ZodType> extends Source<Zod.output<t>> {
 	constructor(
 		readonly name: string,
 		readonly schema: t,
@@ -45,4 +53,24 @@ export class EnvSource<t extends Zod.ZodType> extends Source<Zod.output<t>> {
 	}
 }
 
-export { EnvSource as Env };
+export const env = <t extends Zod.ZodType>(
+	name: string,
+	schema: t,
+): EnvSource<t> => new EnvSource(name, schema);
+
+export const secretEnv = <t extends Zod.ZodType>(
+	name: string,
+	schema: t,
+): EnvSource<t> => env(name, schema).secret();
+
+// Mapped
+
+export { MappedSource, MappedSource as Mapped };
+class MappedSource<input, output> extends Source<output> {
+	constructor(
+		readonly source: Source<input>,
+		readonly fn: (input: input) => output,
+	) {
+		super();
+	}
+}
