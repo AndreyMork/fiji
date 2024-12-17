@@ -22,8 +22,11 @@ export * as Errors from './Errors.ts';
 
 export * as Helpers from './Helpers.ts';
 
+export * as Utils from './Utils.ts';
+export { parseEnv, parseEnv1 } from './Utils.ts';
+
 export * as Zod from 'zod';
 export * as Znv from 'znv';
 
-export type { rawConfig, patch, extension } from './Types/Types.d.ts';
+export type { rawConfig, patch, extension, logLevel } from './Types/Types.d.ts';
 export type * as Types from './Types/Types.d.ts';

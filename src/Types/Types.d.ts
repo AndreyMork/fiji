@@ -1,3 +1,4 @@
+import type * as Helpers from '../Helpers.ts';
 import type * as Source from '../Source.ts';
 
 export type rawConfig = Record<PropertyKey, any>;
@@ -31,3 +32,5 @@ export type config<t extends rawConfig> = {
 				? config<t[key]>
 				: t[key];
 };
+
+export type logLevel = Helpers.logLevels[number];
