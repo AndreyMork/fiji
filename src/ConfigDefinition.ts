@@ -1,12 +1,11 @@
 import * as Strukt from '@ayka/domistrukt';
 import * as Znv from 'znv';
 import * as Zod from 'zod';
-
+import type * as T from '#types';
 import * as Config from './Config.ts';
 import * as Env from './Env.ts';
-import * as Helpers from './Helpers.ts';
+import * as Helpers from './helpers.ts';
 import * as Source from './Source.ts';
-import type * as T from './Types/Types.ts';
 
 const zod = { ...Zod.z, port: Znv.port };
 
@@ -149,7 +148,7 @@ export class ConfigDefinition<t extends T.rawConfig> {
 	asClass(): configClassConstructor<t> {
 		const self = this;
 
-		// @ts-ignore
+		// @ts-expect-error
 		return class extends Config.t<t> {
 			constructor(opts?: loadOpts<t>) {
 				const def = opts?.patch == null ? self : self.patch(opts.patch);

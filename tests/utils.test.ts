@@ -1,6 +1,6 @@
 import * as Japa from '@japa/runner';
 
-import * as Fiji from '#Src/Main.ts';
+import * as Fiji from '#main';
 
 const test = Japa.test;
 
@@ -79,7 +79,7 @@ test.group('Utils', (group) => {
 	}) => {
 		expect(() => {
 			Fiji.parseEnv({ ENABLE_LOGGING: Fiji.Zod.number() });
-		}).toThrowError();
+		}).toThrow();
 	});
 
 	test('`parseEnv1` should parse a single environment variable correctly', ({
@@ -97,7 +97,7 @@ test.group('Utils', (group) => {
 	}) => {
 		expect(() => {
 			Fiji.parseEnv1('ENABLE_LOGGING', Fiji.Zod.number());
-		}).toThrowError();
+		}).toThrow();
 	});
 
 	test('`parseEnv1` should parse environment variables correctly with custom env source', ({

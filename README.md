@@ -11,25 +11,13 @@
 [bundle-js-url]: https://bundlejs.com/?q=%40ayka%2Ffiji
 [bundle-js-badge]: https://img.shields.io/bundlejs/size/%40ayka%2Ffiji
 
-<!-- GitHub Actions -->
-
-[actions-ci]: https://github.com/AndreyMork/fiji/actions/workflows/ci.yaml
-[actions-codeql]: https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql
-[actions-ci-badge]: https://github.com/AndreyMork/fiji/actions/workflows/ci.yaml/badge.svg
-[actions-codeql-badge]: https://github.com/AndreyMork/fiji/actions/workflows/github-code-scanning/codeql/badge.svg
-
-<!-- Code Climate -->
-
-[codeclimate-url]: https://codeclimate.com/github/AndreyMork/fiji
-[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
-[codeclimate-test-coverage-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
-
 <!-- Misc -->
 
 [license-url]: https://opensource.org/license/MIT
 [license-badge]: https://img.shields.io/npm/l/%40ayka%2Ffiji
-[mutation-testing-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Ffiji%2Fmain
-[mutation-testing-url]: https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/fiji/main
+
+<!-- [mutation-testing-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Ffiji%2Fmain
+[mutation-testing-url]: https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/fiji/main -->
 
 <!-- Badges -->
 
@@ -41,12 +29,7 @@
 [![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
 [![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
 
-[![CI][actions-ci-badge]][actions-ci]
-[![CodeQL][actions-codeql-badge]][actions-codeql]
-
-[![Maintainability][codeclimate-maintainability-badge]][codeclimate-url]
-[![Test Coverage][codeclimate-test-coverage-badge]][codeclimate-url]
-[![Mutation testing badge][mutation-testing-badge]][mutation-testing-url]
+<!-- [![Mutation testing badge][mutation-testing-badge]][mutation-testing-url] -->
 
 ## Overview
 
@@ -416,13 +399,11 @@ export class AppService {
 The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides methods to initialize, load, and manipulate configuration.
 
 - **init(configSource: initParams<t>): ConfigFactory<t>**
-
   - Initializes a new configuration factory with the provided configuration source. The configuration source can be a plain object or a function that receives a context for dynamic configurations.
 
 #### Methods
 
 - **toJS(opts?: toJSOpts): T.config<t>**
-
   - Converts the configuration to a JavaScript object. Optionally hides secrets if the `hideSecrets` option is set to `true`.
 
   - **Example:**
@@ -439,7 +420,6 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
     ```
 
 - **load(opts?: loadOpts): ConfigFactory<t>**
-
   - Loads environment variables and applies schemas and defaults. You can specify custom environment sources, files, and additional sources.
 
   - **Example:**
@@ -461,7 +441,6 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
     ```
 
 - **patch(patch: initParams<T.patch<t>>): ConfigFactory<t>**
-
   - Applies a patch to the existing configuration and returns a new factory instance. This allows you to modify specific properties without recreating the entire configuration.
 
   - **Example:**
@@ -483,7 +462,6 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
     ```
 
 - **extend<r extends T.rawConfig>(extension: initParams<r>): ConfigFactory<T.extension<t, r>>**
-
   - Extends the existing configuration with additional properties and returns a new factory instance. This is useful for adding new configuration options without modifying the original factory.
 
   - **Example:**
@@ -504,7 +482,6 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
     ```
 
 - **asClass(): configClassConstructor<t>**
-
   - Converts the configuration factory to a class constructor. This is particularly useful for integrating with the NestJS framework. The resulting class can be used as a provider in NestJS modules, allowing for typed configuration injection throughout your application.
 
   - **Example:**
@@ -535,19 +512,15 @@ The `ConfigFactory` class is the core of the `@ayka/fiji` library. It provides m
     ```
 
 - **addEnvSource(envSource: NodeJS.ProcessEnv): ConfigFactory<t>**
-
   - Adds an environment source to the configuration factory. This allows you to programmatically override environment variables.
 
 - **addEnvFile(path = '.env'): ConfigFactory<t>**
-
   - Adds an environment source from a file. This is useful for loading environment variables from `.env` files or other configuration files.
 
 - **parseEnv(envSource: NodeJS.ProcessEnv = process.env): ConfigFactory<t>**
-
   - Parses the environment variables and updates the internal environment map. This method ensures that all environment variables are validated and applied according to the defined schemas.
 
 - **envInfo(): { missing: string[], loaded: string[], defaulted: string[], sourced: string[] }**
-
   - Provides information about the environment variables, including which are missing, loaded, defaulted, and sourced.
 
 For more detailed examples and API references, please refer to the test files and source code.

@@ -1,8 +1,0 @@
-ship-delete-tracking-branch = true
-
-[branches]
-main = "develop"
-perennials = ["main"]
-
-[sync-strategies]
-feature-branch = "rebase"

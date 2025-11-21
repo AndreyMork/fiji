@@ -1,7 +1,7 @@
 import * as Japa from '@japa/runner';
 
 import mockFs from 'mock-fs';
-import * as Fiji from '#Main';
+import * as Fiji from '#main';
 
 // import type * as T from '#Src/Types/Types.d.ts';
 

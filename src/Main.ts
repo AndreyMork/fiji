@@ -3,30 +3,24 @@
 //
 // export * as Config from './Config.ts';
 
-export * as ConfigDefinition from './ConfigDefinition.ts';
-export { init } from './ConfigDefinition.ts';
+export * as Znv from 'znv';
+export * as Zod from 'zod';
+export type * as Types from '#types';
+export type { extension, logLevel, patch, rawConfig } from '#types';
+export type { FijiConfig as config, toJSOpts } from './Config.ts';
+export * as Config from './Config.ts';
 export type {
 	ctx,
 	defFn,
 	defParams,
-	loadOpts,
 	loadEnvOpts,
+	loadOpts,
 } from './ConfigDefinition.ts';
-
-export * as Config from './Config.ts';
-export type { toJSOpts, FijiConfig as config } from './Config.ts';
-
-export * as Source from './Source.ts';
+export * as ConfigDefinition from './ConfigDefinition.ts';
+export { init } from './ConfigDefinition.ts';
 export * as Env from './Env.ts';
-export * as Errors from './Errors.ts';
-
-export * as Helpers from './Helpers.ts';
-
-export * as Utils from './Utils.ts';
-export { parseEnv, parseEnv1 } from './Utils.ts';
-
-export * as Zod from 'zod';
-export * as Znv from 'znv';
-
-export type { rawConfig, patch, extension, logLevel } from './Types/Types.d.ts';
-export type * as Types from './Types/Types.d.ts';
+export * as Errors from './errors.ts';
+export * as Helpers from './helpers.ts';
+export * as Source from './Source.ts';
+export * as Utils from './utils.ts';
+export { parseEnv, parseEnv1 } from './utils.ts';

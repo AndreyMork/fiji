@@ -4,12 +4,13 @@
 	"extends": "@ayka/tsconfig/esm.json",
 	"compilerOptions": {
 		"baseUrl": ".",
+
 		"paths": {
-			"#PackageJSON": ["./package.json"],
-			"#Main": ["./src/Main.ts"],
-			"#Src/*": ["./src/*"],
-			"#Types/*": ["./src/Types/*"],
-			"#Types": ["./src/Types/Types.d.ts"]
+			"#packagejson": ["./package.json"],
+			"#main": ["./src/main.ts"],
+			"#src/*": ["./src/*"],
+			"#types/*": ["./src/types/*"],
+			"#types": ["./src/types/types.d.ts"]
 		}
 	}
 }

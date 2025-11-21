@@ -1,12 +1,11 @@
-import * as Znv from 'znv';
-
 import * as Strukt from '@ayka/domistrukt';
 import * as Im from 'immutable';
+import * as Znv from 'znv';
 
-import type * as T from '#Types';
+import type * as T from '#types';
 import type * as ConfigDefinition from './ConfigDefinition.ts';
 import type * as Env from './Env.ts';
-import * as Errors from './Errors.ts';
+import * as Errors from './errors.ts';
 import * as Source from './Source.ts';
 
 export type toJSOpts = Readonly<{

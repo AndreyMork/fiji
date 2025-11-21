@@ -1,4 +1,4 @@
-import type * as Helpers from '../Helpers.ts';
+import type * as Helpers from '../helpers.ts';
 import type * as Source from '../Source.ts';
 
 export type rawConfig = Record<PropertyKey, any>;

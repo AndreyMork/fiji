@@ -25,7 +25,6 @@ export const parseEnv = <schemas extends Record<string, Z.ZodType<any>>>(
 		schemas,
 	);
 
-	// @ts-expect-error
 	return result;
 };
 

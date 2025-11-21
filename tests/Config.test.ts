@@ -1,9 +1,7 @@
 import * as Japa from '@japa/runner';
 
-import * as Fiji from '#Main';
-import * as Config from '#Src/Config.ts';
-
-// import type * as T from '#Src/Types/Types.d.ts';
+import * as Fiji from '#main';
+import * as Config from '#src/Config.ts';
 
 const test = Japa.test;
 

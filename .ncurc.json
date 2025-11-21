@@ -2,5 +2,6 @@
 	"$schema": "https://raw.githubusercontent.com/raineorshine/npm-check-updates/main/src/types/RunOptions.json",
 	"upgrade": true,
 	"target": "latest",
-	"reject": []
+	"interactive": true,
+	"reject": ["zod"]
 }

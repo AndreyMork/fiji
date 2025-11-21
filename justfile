@@ -1,9 +1,4 @@
-set dotenv-load := true
-
-watch := "false"
-ci := "false"
-git_commit_cmd := "git rev-parse HEAD"
-git_branch_cmd := "git rev-parse --abbrev-ref HEAD"
+# set dotenv-load := true
 
 default:
     @just --choose
@@ -36,6 +31,7 @@ build *args:
 
 prepack:
     just build --dts
+    @just publint
 
 # === Ops ===
 [group('Ops')]
@@ -91,27 +87,21 @@ stryker *args:
     npx stryker run {{ args }}
 
 [group('Maintenance')]
+publint *args:
+    npx publint {{ args }}
+
+[group('Maintenance')]
 format-check:
     npx prettier --check .
 
 [group('Maintenance')]
 format:
     npx prettier --write .
-
-[group('Maintenance')]
-format-all: format format-justfile
-
-[group('Maintenance')]
-format-justfile:
     @just --unstable --fmt
-
-[group('Maintenance')]
-format-utils: format-justfile
 
 [group('Maintenance')]
 update-deps:
     npx ncu
-    just install
 
 # === Dev ===
 

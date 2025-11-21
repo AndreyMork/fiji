@@ -1,7 +1,7 @@
 import * as Japa from '@japa/runner';
 import type * as Zod from 'zod';
-import type * as Source from '#Src/Source.ts';
-import type * as Types from '#Src/Types/Types.d.ts';
+import type * as Source from '#src/Source.ts';
+import type * as Types from '#types';
 
 const test = Japa.test;
 

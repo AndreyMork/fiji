@@ -1,6 +1,6 @@
 import * as Japa from '@japa/runner';
 
-import * as Fiji from '#Src/Main.ts';
+import * as Fiji from '#main';
 
 const test = Japa.test;
 
